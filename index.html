@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FITS - DISEÑADO PARA EL RENDIMIENTO</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/main.js"></script>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md min-h-screen flex flex-col grid-bg"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-300"
+    >
+      <div
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20"
+      >
+        <!-- Brand -->
+        <a
+          class="font-display-lg-mobile md:text-[32px] text-primary font-extrabold tracking-tighter"
+          href="index.html"
+        >
+          FITS
+        </a>
+        <!-- Nav Links (Desktop) -->
+        <div class="hidden md:flex gap-lg items-center">
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b-2 border-primary pb-1"
+            href="index.html"
+            >INICIO</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
+            href="products.html"
+            >PRODUCTOS</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
+            href="ofertas.html"
+            >OFERTAS</a
+          >
+        </div>
+        <!-- Actions -->
+        <div class="flex items-center gap-md text-primary">
+          <a
+            href="carrito.html"
+            aria-label="Shopping Cart"
+            class="hover:scale-105 active:scale-95 transition-transform duration-200"
+          >
+            <span class="material-symbols-outlined">shopping_cart</span>
+          </a>
+          <button
+            aria-label="Menu"
+            class="md:hidden hover:scale-105 active:scale-95 transition-transform duration-200"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col">
+      <!-- Hero Section -->
+      <section
+        class="relative w-full min-h-[819px] flex items-center pt-2xl pb-2xl md:pt-0 md:pb-0 overflow-hidden border-b border-outline-variant"
+      >
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0 bg-surface-variant">
+          <div
+            class="bg-cover bg-center bg-no-repeat w-full h-full opacity-60"
+            data-alt="A cinematic, high-contrast shot of an elite athlete sprinting in a modern, brutalist concrete stadium. The lighting is dramatic, emphasizing muscle definition and the advanced texture of their performance sportswear. The overall color grading leans towards cool tech-blue tones with striking white highlights, embodying a professional, data-driven athletic aesthetic."
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDl1GM6o_YT0ikvTNsQbYOijx_R4aH8u7e-Ob4S1eIBQ1JZUxWSy68NBiUe6Rhd3UslOodK_YkSp4LFCHjuUtkBT7PVfwJcoa6QAcw6JWdDARBEM4ZGLQsAfVYqc64ReX3eK3GBdXq4JcVZPpTlEyUbsJnMbWAGvVKenGkC6OrCWD0gc-SB3pFj2pmAroIWUbpFtD5RN2767cQraMgUWw3A3R2xprNjElHlsi1MEmLiiNDjVM-uvAuMaA&quot;);
+            "
+          ></div>
+        </div>
+        <div
+          class="relative z-10 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center gap-2xl"
+        >
+          <div
+            class="md:w-1/2 flex flex-col gap-lg glass-panel p-lg border border-outline-variant backdrop-blur-md bg-surface/80"
+          >
+            <div
+              class="inline-flex items-center gap-sm border border-outline-variant rounded-full px-sm py-xs w-fit bg-surface"
+            >
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span
+                class="font-label-caps text-label-caps text-primary tracking-widest"
+                >SISTEMA EN LÍNEA // VER. 4.0</span
+              >
+            </div>
+            <h1
+              class="font-display-lg-mobile md:font-display-lg text-primary uppercase font-bold leading-tight"
+            >
+              DISEÑADO<br />PARA EL<br />RENDIMIENTO
+            </h1>
+            <p
+              class="font-body-lg text-body-lg text-on-surface-variant max-w-md"
+            >
+              Equipamiento calibrado para rendimiento de élite. Telas de
+              precisión diseñadas para optimizar la eficiencia biomecánica y la
+              regulación de temperatura durante entrenamientos de alta
+              intensidad.
+            </p>
+            <div class="flex gap-md pt-sm">
+              <a
+                href="products.html"
+                class="bg-primary text-on-primary font-label-caps text-label-caps px-lg py-md hover:bg-primary-container transition-colors flex items-center gap-sm hard-shadow"
+              >
+                EXPLORAR COLECCIÓN
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Trending Tech Section (Bento Grid) -->
+      <section
+        class="w-full py-2xl max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop"
+      >
+        <div
+          class="flex justify-between items-end mb-xl border-b border-outline-variant pb-md"
+        >
+          <div>
+            <h2
+              class="font-headline-md text-headline-md text-primary font-bold"
+            >
+              ÚLTIMAS CALIBRACIONES
+            </h2>
+            <p class="font-body-md text-on-surface-variant mt-sm">
+              Ropa de rendimiento basada en datos.
+            </p>
+          </div>
+          <a
+            href="products.html"
+            class="hidden md:flex items-center gap-xs font-label-caps text-label-caps text-primary hover:text-primary-container transition-colors"
+          >
+            VER TODAS LAS ESPECIFICACIONES
+            <span class="material-symbols-outlined">chevron_right</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+          <!-- Large Featured Item -->
+          <a
+            href="products.html"
+            class="md:col-span-8 bg-surface border border-outline-variant group overflow-hidden relative min-h-[400px] flex flex-col justify-between"
+          >
+            <div class="absolute inset-0 z-0">
+              <div
+                class="bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105"
+                data-alt="Close-up studio shot of a high-tech running shoe featuring geometric, angular midsole structures and a breathable mesh upper in crisp white and navy blue. The lighting is clinical and sharp, highlighting the engineered textures and aerodynamic silhouette, set against a pristine white background to emphasize a modern, laboratory-grade aesthetic."
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCu0su6u6b6B7sq_w3DxwpPsnkNGFzVWa4k1qK2bTb4N2Y0vYCITbG5NV17BkTVQCgmGVKLakG8pYvCH7_MRYuYCAOvphhWMspywK1M5NtILhT0KgPe1JlFYdNYsF2Mn82WmdRrwKn6E1-8LDCEnb7ZJGW9w1CZmYWmJTAKn7_6DS3uqHPEjWRP66GhO6HnIBgD8dra-atCenLqdFLho3kOuZiD4ec5GvrYIFpchECa7CyZ6mIZQczUrQ&quot;);
+                "
+              ></div>
+            </div>
+            <!-- Gradient overlay for text readability -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-surface-variant/90 via-surface-variant/20 to-transparent z-10"
+            ></div>
+            <div class="relative z-20 p-md flex justify-end">
+              <span
+                class="bg-surface text-primary font-label-caps text-label-caps px-sm py-xs border border-outline-variant"
+                >NUEVO</span
+              >
+            </div>
+            <div
+              class="relative z-20 p-lg glass-panel border-t border-outline-variant m-md mt-auto"
+            >
+              <h3
+                class="font-headline-sm text-headline-sm text-primary font-bold"
+              >
+                AERO-KNIT PRO ZAPATILLAS
+              </h3>
+              <div class="flex justify-between items-center mt-md">
+                <p class="font-body-md text-on-surface-variant">
+                  Sistema de propulsión con fibra de carbono.
+                </p>
+                <span
+                  class="font-label-caps text-label-caps text-primary bg-primary-fixed px-sm py-xs border border-primary/20"
+                  >185.00 EUR</span
+                >
+              </div>
+            </div>
+          </a>
+          <!-- Secondary Item 1 -->
+          <div
+            class="md:col-span-4 bg-surface border border-outline-variant group overflow-hidden relative min-h-[400px] flex flex-col"
+          >
+            <div class="h-2/3 bg-surface-variant relative overflow-hidden">
+              <div
+                class="bg-cover bg-center w-full h-full transition-transform duration-500 group-hover:scale-105"
+                data-alt="A sleek, long-sleeve compression shirt in dark navy blue, displayed flatly on a light grey textured background. The fabric shows subtle geometric paneled stitching designed for muscle support. The lighting is even and technical, creating a minimalist, catalog-style presentation of premium athletic wear."
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDzoiiv74HtdSKSmmgECvKDE_jemp7EuenxbTBFrVkhX0w0doXbN3L40Pv-IeyGO2Sxez69VQgh3fXS4r1tXOqPRNLPYFSYXprBq6rexpNprH8cdK3zbfv9dwc8WLqC_WBdPCDOQCAOJQ4xLALELBEAWPtX3ptSgR7gDlCFHfW6ggVsMbQwqbldvJAl0S5fF71_SpFp1f2JX3KQR4mEWqB_F3vpTp4WO5o0hzR7NUkJpEW6Uxp5JrR6Fw&quot;);
+                "
+              ></div>
+            </div>
+            <div
+              class="h-1/3 p-md flex flex-col justify-between border-t border-outline-variant bg-surface"
+            >
+              <div>
+                <h3
+                  class="font-label-sm text-label-sm text-primary font-bold uppercase"
+                >
+                  COMPRESSION SHIRT MK-II
+                </h3>
+                <p
+                  class="text-xs text-on-surface-variant mt-xs font-label-caps"
+                >
+                  REGULACIÓN TÉRMICA
+                </p>
+              </div>
+              <div class="flex justify-between items-center mt-sm">
+                <span class="font-label-caps text-label-caps text-primary"
+                  >65.00 EUR</span
+                >
+                <button
+                  class="w-8 h-8 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-sm">add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FAQ Section -->
+    <section
+      class="w-full py-2xl max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop border-t border-outline-variant"
+    >
+      <div class="mb-xl">
+        <h2
+          class="font-headline-md text-headline-md text-primary font-bold uppercase"
+        >
+          PREGUNTAS FRECUENTES
+        </h2>
+        <p class="font-body-md text-on-surface-variant mt-sm">
+          Consultas frecuentes sobre nuestros sistemas de rendimiento.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+        <div class="border-b border-outline-variant pb-md">
+          <button
+            class="flex justify-between items-center w-full text-left group"
+          >
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-widest"
+              >01 // ENVÍO INTERNACIONAL</span
+            >
+            <span
+              class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform"
+              >add</span
+            >
+          </button>
+          <p class="font-body-sm text-sm text-on-surface-variant mt-md">
+            Logística expresa para equipamiento de élite. Enviamos a más de 50
+            países con seguimiento en tiempo real y opciones de entrega carbono
+            neutral.
+          </p>
+        </div>
+        <div class="border-b border-outline-variant pb-md">
+          <button
+            class="flex justify-between items-center w-full text-left group"
+          >
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-widest"
+              >02 // DEVOLUCIONES Y CALIBRACIÓN</span
+            >
+            <span
+              class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform"
+              >add</span
+            >
+          </button>
+          <p class="font-body-sm text-sm text-on-surface-variant mt-md">
+            Garantía de rendimiento de 30 días. Si el ajuste no está optimizado
+            para tu rendimiento, devuélvelo en estado original para una
+            recalibración completa o reembolso.
+          </p>
+        </div>
+        <div class="border-b border-outline-variant pb-md">
+          <button
+            class="flex justify-between items-center w-full text-left group"
+          >
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-widest"
+              >03 // ARQUITECTURA DE TALLAS</span
+            >
+            <span
+              class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform"
+              >add</span
+            >
+          </button>
+          <p class="font-body-sm text-sm text-on-surface-variant mt-md">
+            Nuestro equipamiento sigue un ajuste de compresión. Consulta nuestra
+            guía de tallas biométrica para medidas precisas basadas en masa
+            muscular y estatura.
+          </p>
+        </div>
+        <div class="border-b border-outline-variant pb-md">
+          <button
+            class="flex justify-between items-center w-full text-left group"
+          >
+            <span
+              class="font-label-caps text-label-caps text-primary tracking-widest"
+              >04 // TECNOLOGÍA TEXTIL</span
+            >
+            <span
+              class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform"
+              >add</span
+            >
+          </button>
+          <p class="font-body-sm text-sm text-on-surface-variant mt-md">
+            Utilizamos polímeros Aero-Knit y fibra de carbono. Todos los tejidos
+            están diseñados para máxima regulación térmica y absorción de
+            humedad.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Store Location Section -->
+    <section
+      class="w-full py-2xl bg-surface-container-low border-t border-outline-variant"
+    >
+      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-2xl items-center">
+          <div class="md:col-span-5 flex flex-col gap-lg">
+            <div>
+              <h2
+                class="font-headline-md text-headline-md text-primary font-bold uppercase"
+              >
+                TIENDA FITS
+              </h2>
+            </div>
+            <div class="flex flex-col gap-md">
+              <div class="flex gap-md">
+                <span class="material-symbols-outlined text-primary"
+                  >location_on</span
+                >
+              </div>
+              <div class="flex gap-md">
+                <span class="material-symbols-outlined text-primary"
+                  >schedule</span
+                >
+                <div class="font-body-md text-on-surface-variant">
+                  <p>MON - FRI: 10:00 - 20:00</p>
+                  <p>SAT: 11:00 - 19:00</p>
+                </div>
+              </div>
+              <div class="flex gap-md">
+                <span class="material-symbols-outlined text-primary">call</span>
+                <p class="font-body-md text-on-surface-variant">
+                  +49 30 12345678
+                </p>
+              </div>
+            </div>
+            <button
+              class="w-fit bg-primary text-on-primary font-label-caps text-label-caps px-lg py-md hover:bg-primary-container transition-colors hard-shadow"
+            >
+              CÓMO LLEGAR
+            </button>
+          </div>
+          <div
+            class="md:col-span-7 h-[400px] bg-surface-variant border border-outline-variant relative overflow-hidden"
+          >
+            <!-- Map Placeholder -->
+            <div class="absolute inset-0 grid-bg opacity-30"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="flex flex-col items-center gap-sm">
+                <span
+                  class="material-symbols-outlined text-primary text-headline-md"
+                  >map</span
+                >
+                <span class="font-label-caps text-label-caps text-primary"
+                  >MAPA INTERACTIVO</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer
+      class="bg-surface-container-lowest text-primary py-stack-lg border-t border-outline-variant mt-2xl"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto py-xl"
+      >
+        <!-- Brand Column -->
+        <div class="col-span-1 md:col-span-1 flex flex-col gap-md">
+          <span
+            class="font-display-lg-mobile md:font-display-lg font-black text-primary tracking-tighter"
+            >FITS</span
+          >
+          <p class="font-body-sm text-sm text-on-surface-variant">
+            Diseñado para atletas de élite. Equipamiento de precisión para
+            rendimiento máximo.
+          </p>
+        </div>
+        <!-- Links Columns -->
+        <div class="col-span-1 flex flex-col gap-sm">
+          <h4
+            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
+          >
+            SOPORTE
+          </h4>
+          <a
+            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+            href="#"
+            >ATENCIÓN AL CLIENTE</a
+          >
+          <a
+            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+            href="#"
+            >UBICACIÓN DE TIENDAS</a
+          >
+        </div>
+        <div class="col-span-1 flex flex-col gap-sm">
+          <h4
+            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
+          >
+            LEGAL
+          </h4>
+          <a
+            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+            href="#"
+            >POLÍTICA DE PRIVACIDAD</a
+          >
+          <a
+            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+            href="#"
+            >TÉRMINOS DE SERVICIO</a
+          >
+        </div>
+        <div class="col-span-1 flex flex-col gap-sm">
+          <h4
+            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
+          >
+            COMUNICACIONES
+          </h4>
+          <div class="flex mt-sm w-full max-w-xs">
+            <input
+              class="w-full bg-surface border border-outline-variant px-sm py-xs font-label-caps text-xs focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary h-10 rounded-none"
+              placeholder="INGRESA TU EMAIL"
+              type="email"
+            />
+            <button
+              class="bg-primary text-on-primary px-sm flex items-center justify-center border border-primary h-10 hover:bg-primary-container transition-colors"
+            >
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto pt-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-sm"
+      >
+        <span class="font-label-caps text-xs text-on-surface-variant">
+          © 2024 APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
+        </span>
+        <div class="flex gap-md text-on-surface-variant">
+          <!-- Social placeholders -->
+          <span
+            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
+            >language</span
+          >
+          <span
+            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
+            >share</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

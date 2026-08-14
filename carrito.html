@@ -1,0 +1,476 @@
+<!doctype html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Carrito de Compras - FITS</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/main.js"></script>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-background text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="bg-surface/90 backdrop-blur-md sticky top-0 w-full border-b border-outline-variant shadow-sm z-50"
+    >
+      <div
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20"
+      >
+        <!-- Brand -->
+        <a
+          class="font-display-lg text-headline-sm md:text-headline-md font-extrabold text-primary flex items-center gap-2"
+          href="index.html"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-weight="fill"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >change_history</span
+          >
+          FITS
+        </a>
+        <!-- Navigation Links (Hidden on Mobile) -->
+        <ul
+          class="hidden md:flex gap-lg font-label-caps text-label-caps uppercase tracking-widest"
+        >
+          <li>
+            <a
+              class="text-on-surface hover:text-primary-fixed transition-colors"
+              href="index.html"
+              >INICIO</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-on-surface hover:text-primary-fixed transition-colors"
+              href="products.html"
+              >PRODUCTOS</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-on-surface hover:text-primary-fixed transition-colors"
+              href="ofertas.html"
+              >OFERTAS</a
+            >
+          </li>
+        </ul>
+        <!-- Trailing Icons -->
+        <div class="flex items-center gap-4 text-on-surface">
+          <button
+            aria-label="Search"
+            class="hover:scale-105 active:scale-95 transition-transform duration-200"
+          >
+            <span class="material-symbols-outlined">search</span>
+          </button>
+          <a
+            href="carrito.html"
+            aria-label="Cart"
+            class="hover:scale-105 active:scale-95 transition-transform duration-200 text-primary-fixed-dim relative"
+          >
+            <span
+              class="material-symbols-outlined"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >shopping_cart</span
+            >
+            <span
+              class="absolute -top-2 -right-2 bg-error text-on-error font-label-caps text-[10px] w-4 h-4 flex items-center justify-center rounded-full"
+              >2</span
+            >
+          </a>
+          <button
+            aria-label="Profile"
+            class="hover:scale-105 active:scale-95 transition-transform duration-200 hidden md:block"
+          >
+            <span class="material-symbols-outlined">person</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main
+      class="flex-grow w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-xl md:py-2xl"
+    >
+      <!-- Page Header -->
+      <header
+        class="mb-lg md:mb-xl flex items-end justify-between border-b border-outline-variant pb-md"
+      >
+        <div>
+          <span
+            class="font-label-caps text-label-caps text-secondary mb-unit block"
+            >PASO 1 DE 2</span
+          >
+          <h1
+            class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface"
+          >
+            TU CARRITO
+          </h1>
+        </div>
+        <span
+          class="font-label-caps text-label-caps text-outline hidden md:block"
+          >2 ARTÍCULOS SELECCIONADOS</span
+        >
+      </header>
+      <!-- Cart Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-xl relative">
+        <!-- Items Column -->
+        <div class="lg:col-span-8 flex flex-col gap-md">
+          <!-- Product Card 1 -->
+          <div
+            class="group flex flex-col sm:flex-row bg-surface-container-lowest border border-outline-variant p-sm gap-md transition-all duration-300 hover:border-primary hover:shadow-[4px_4px_0_0_#183678]"
+          >
+            <div
+              class="w-full sm:w-48 aspect-square bg-surface-container-low shrink-0 relative overflow-hidden"
+            >
+              <img
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="A high-end product shot of technical athletic footwear, specifically the Aero-Knit Pro Zapatillas. The shoes feature a sleek, modern design with engineered mesh and structural overlays. Photographed in a pristine, minimalist studio setting with high-key lighting that emphasizes the textures. The color palette relies on crisp whites, subtle creams, and deep navy blue accents to match the brand identity. The mood is powerful, precise, and performance-oriented."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTDVF5O9DCOUETp-kZJ-eS8pOWRB_k110HnYae8IvcaGEVjpX1O9xZvzMUgiSvvd-IGFh_PW9-SfUeFaFS4eRWmZSjKv86eLvi8cum-xGIq6vnSI1h-Dh-TvvtaumP4oIEE8yT3-zbMOzboBb74UrFNpaVJMRFr-ddY7iL3_P49mMIuVwciZbaserO7v9b-De8C9B3Z22zRhR-LcG4I7UnvtNyQxGVg7U5vQVjYuRk2vuJAqODAi0cXw"
+              />
+            </div>
+            <div class="flex flex-col flex-grow justify-between py-xs">
+              <div class="flex justify-between items-start gap-4">
+                <div>
+                  <span class="font-label-caps text-label-caps text-secondary"
+                    >CALZADO ÉLITE</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-xs"
+                  >
+                    Aero-Knit Pro Zapatillas
+                  </h3>
+                  <p
+                    class="font-body-md text-body-md text-on-surface-variant mt-unit"
+                  >
+                    Color: Phantom Blue | Talla: 43 EU
+                  </p>
+                </div>
+                <span class="font-headline-sm text-headline-sm text-primary"
+                  >$180.00</span
+                >
+              </div>
+              <div class="flex justify-between items-end mt-md sm:mt-0">
+                <!-- Quantity -->
+                <div
+                  class="flex items-center border border-outline-variant rounded-DEFAULT overflow-hidden bg-surface"
+                >
+                  <button
+                    aria-label="Disminuir cantidad"
+                    class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high transition-colors active:bg-surface-dim text-on-surface"
+                  >
+                    <span class="material-symbols-outlined">remove</span>
+                  </button>
+                  <span
+                    class="w-10 text-center font-label-caps text-label-caps text-on-surface"
+                    >1</span
+                  >
+                  <button
+                    aria-label="Aumentar cantidad"
+                    class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high transition-colors active:bg-surface-dim text-on-surface"
+                  >
+                    <span class="material-symbols-outlined">add</span>
+                  </button>
+                </div>
+                <!-- Remove -->
+                <button
+                  class="flex items-center gap-xs font-label-caps text-label-caps text-error hover:text-on-error-container transition-colors group/remove"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px] group-hover/remove:-rotate-12 transition-transform"
+                    >delete</span
+                  >
+                  <span>ELIMINAR</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 2 -->
+          <div
+            class="group flex flex-col sm:flex-row bg-surface-container-lowest border border-outline-variant p-sm gap-md transition-all duration-300 hover:border-primary hover:shadow-[4px_4px_0_0_#183678]"
+          >
+            <div
+              class="w-full sm:w-48 aspect-square bg-surface-container-low shrink-0 relative overflow-hidden"
+            >
+              <img
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="A premium product photography shot of a technical compression shirt, the MK-II model, neatly folded or displayed on a ghost mannequin. The fabric shows tight, engineered knit patterns indicative of high performance. The studio lighting is bright and directional, creating subtle highlights on the material's surface. The overarching aesthetic is clean and modern, dominated by deep primary blues against a bright surface background, conveying an elite athletic vibe."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8yQ10wauXt2JDz5PYOTE6Xa7V2nsUHSVPml3-9vUjmSJkGAJnVsfkt6im_mfZbIWywMmwGcaYFtnIj9aoUYQ-pFx3wY4Gb3Ey48aPGgZeR2fBenbCKoACOirOp0ZiyugNDGQv2U7jaNmWpM46Oe6sioonpIsX7eS2ZEQFl39fPM-AiTuyKObHvuBDfNpFEMUK_SjDHN6TAPQ5dN2pXyeWphQr7NSVX1ElmslxfoitjQzsuWPEV95bkA"
+              />
+            </div>
+            <div class="flex flex-col flex-grow justify-between py-xs">
+              <div class="flex justify-between items-start gap-4">
+                <div>
+                  <span class="font-label-caps text-label-caps text-secondary"
+                    >COMPRESIÓN</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-xs"
+                  >
+                    Compression Shirt MK-II
+                  </h3>
+                  <p
+                    class="font-body-md text-body-md text-on-surface-variant mt-unit"
+                  >
+                    Color: Core Black | Talla: L
+                  </p>
+                </div>
+                <span class="font-headline-sm text-headline-sm text-primary"
+                  >$60.00</span
+                >
+              </div>
+              <div class="flex justify-between items-end mt-md sm:mt-0">
+                <!-- Quantity -->
+                <div
+                  class="flex items-center border border-outline-variant rounded-DEFAULT overflow-hidden bg-surface"
+                >
+                  <button
+                    aria-label="Disminuir cantidad"
+                    class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high transition-colors active:bg-surface-dim text-on-surface"
+                  >
+                    <span class="material-symbols-outlined">remove</span>
+                  </button>
+                  <span
+                    class="w-10 text-center font-label-caps text-label-caps text-on-surface"
+                    >1</span
+                  >
+                  <button
+                    aria-label="Aumentar cantidad"
+                    class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high transition-colors active:bg-surface-dim text-on-surface"
+                  >
+                    <span class="material-symbols-outlined">add</span>
+                  </button>
+                </div>
+                <!-- Remove -->
+                <button
+                  class="flex items-center gap-xs font-label-caps text-label-caps text-error hover:text-on-error-container transition-colors group/remove"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px] group-hover/remove:-rotate-12 transition-transform"
+                    >delete</span
+                  >
+                  <span>ELIMINAR</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Summary Column -->
+        <div class="lg:col-span-4">
+          <div
+            class="bg-surface-container-low border border-outline-variant p-lg sticky top-24"
+          >
+            <h2 class="font-headline-sm text-headline-sm text-on-surface mb-md">
+              RESUMEN DEL PEDIDO
+            </h2>
+            <div
+              class="flex flex-col gap-unit border-b border-outline-variant pb-md mb-md"
+            >
+              <div
+                class="flex justify-between items-center font-body-md text-body-md text-on-surface-variant"
+              >
+                <span>Subtotal (2 artículos)</span>
+                <span>$240.00</span>
+              </div>
+              <div
+                class="flex justify-between items-center font-body-md text-body-md text-on-surface-variant"
+              >
+                <span>Envío</span>
+                <span class="text-primary font-medium tracking-wide"
+                  >GRATIS</span
+                >
+              </div>
+            </div>
+            <div class="flex justify-between items-end mb-lg">
+              <span class="font-headline-sm text-headline-sm text-on-surface"
+                >Total</span
+              >
+              <span
+                class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold"
+                >$240.00</span
+              >
+            </div>
+            <!-- WhatsApp CTA -->
+            <button
+              class="w-full bg-primary text-on-primary py-4 px-6 flex items-center justify-center gap-sm transition-all duration-300 hover:bg-primary-container active:scale-[0.98] border border-transparent hover:shadow-[4px_4px_0_0_#151642]"
+            >
+              <svg
+                class="shrink-0"
+                fill="currentColor"
+                height="24"
+                viewbox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                ></path>
+              </svg>
+              <span
+                class="font-label-caps text-label-caps uppercase tracking-wider"
+                >Finalizar pedido por WhatsApp</span
+              >
+            </button>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant text-[12px] mt-4 text-center"
+            >
+              Serás redirigido a WhatsApp para confirmar los detalles de pago y
+              envío con uno de nuestros especialistas.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Recommended Section -->
+      <section class="mt-2xl border-t border-outline-variant pt-xl">
+        <header class="flex justify-between items-end mb-lg">
+          <h2
+            class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface"
+          >
+            COMPLETA TU EQUIPAMIENTO
+          </h2>
+          <a
+            class="font-label-caps text-label-caps text-primary hover:text-primary-container transition-colors hidden sm:block"
+            href="products.html"
+            >VER TODO</a
+          >
+        </header>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-md md:gap-lg">
+          <!-- Rec Card 1 -->
+          <a
+            class="group block border border-outline-variant bg-surface-container-lowest transition-all hover:border-primary hover:shadow-[4px_4px_0_0_#183678]"
+            href="products.html"
+          >
+            <div
+              class="aspect-[4/5] bg-surface-container-low relative overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="A detailed e-commerce shot of elite athletic performance shorts, featuring laser-cut ventilation and technical bonded seams. The garment is styled perfectly against a stark, minimalist surface-bright background. The lighting is crisp and even, eliminating soft shadows and enhancing the structural integrity of the design. The visual style embodies technical athleticism, using stark contrasts and a cool, controlled palette of navy and cream."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd_VqByMW5HoZFgkzakL_Wx3mfzbDGeBT4rF4xinpVyMZx8DSuCbWBDad9wSnAQOK7Z8cZofVz0JP9Dh6_vWdgggjhO3ssu-AHZKuMja5HF15QCyUtdZT-C5oRev2SOrZNI009tHa53pO3R1S8f_BD4OWWZIp7pqsJWmIPp46Y_16ZdxM9pDAZ4UVgwjCtMv7BkfuBQ1KDYvQgtmawKXN9A8yGG40utVnEnXWqHPDIFkVB5vF10eBe2g"
+              />
+              <div
+                class="absolute top-2 right-2 bg-surface text-primary border border-outline-variant w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <span class="material-symbols-outlined text-[18px]">add</span>
+              </div>
+            </div>
+            <div class="p-sm md:p-md border-t border-outline-variant">
+              <span
+                class="font-label-caps text-label-caps text-secondary text-[10px] md:text-label-caps"
+                >ROPA</span
+              >
+              <h4
+                class="font-headline-sm text-[16px] md:text-headline-sm text-on-surface mt-1 truncate"
+              >
+                Aero-Vent Shorts
+              </h4>
+              <span
+                class="block font-headline-sm text-[14px] md:text-[18px] text-primary mt-2"
+                >$45.00</span
+              >
+            </div>
+          </a>
+          <!-- Rec Card 2 -->
+          <a
+            class="group block border border-outline-variant bg-surface-container-lowest transition-all hover:border-primary hover:shadow-[4px_4px_0_0_#183678]"
+            href="products.html"
+          >
+            <div
+              class="aspect-[4/5] bg-surface-container-low relative overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="A sharp, high-resolution image of technical athletic crew socks, designed for elite performance. The socks display ribbed compression zones and geometric branding. Placed against a clean, light surface-container background, the shot utilizes technical studio lighting to highlight the knit texture. The visual aesthetic is highly engineered and modern, aligning with a sophisticated brand identity that favors precision, deep blue accents, and stark white spaces."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv9F1Lb_FD-3K1nL8Lfo2L7nR7GTf7ZWhyMN7vv6M8QUVUpfoaay0Poekfk0pZvlCTIvruXx8gF3IdEXMl4yAUlgvd8LPUVMS-niUVsfMCRQXiCCBr9wOU5xBTnWNnKs0jaWQY5yJ3IeHtefX9s0k-l5WPw8-9vcCgAnczt3ZpgE0P1XJ_lxwQB1xByGcgBonI9LEaVp7jAZd2Bro-yOcWTooM4JA52h8Jlxgo_rxnbFTpLmcLEDJEWg"
+              />
+              <div
+                class="absolute top-2 right-2 bg-surface text-primary border border-outline-variant w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                <span class="material-symbols-outlined text-[18px]">add</span>
+              </div>
+            </div>
+            <div class="p-sm md:p-md border-t border-outline-variant">
+              <span
+                class="font-label-caps text-label-caps text-secondary text-[10px] md:text-label-caps"
+                >ACCESORIOS</span
+              >
+              <h4
+                class="font-headline-sm text-[16px] md:text-headline-sm text-on-surface mt-1 truncate"
+              >
+                Pro Grip Socks (3-Pack)
+              </h4>
+              <span
+                class="block font-headline-sm text-[14px] md:text-[18px] text-primary mt-2"
+                >$24.00</span
+              >
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-2xl border-t border-outline-variant"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto"
+      >
+        <!-- Brand Column -->
+        <div class="md:col-span-1 flex flex-col justify-between mb-lg md:mb-0">
+          <span
+            class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg font-black text-primary"
+            >FITS</span
+          >
+          <p
+            class="font-body-md text-body-md text-on-surface-variant mt-xl max-w-[250px] uppercase text-[10px] tracking-widest"
+          >
+            © 2024 APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
+          </p>
+        </div>
+        <!-- Links -->
+        <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-lg">
+          <div class="flex flex-col gap-unit">
+            <a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+              href="#"
+              >CUSTOMER SUPPORT</a
+            >
+            <a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+              href="#"
+              >STORE LOCATOR</a
+            >
+          </div>
+          <div class="flex flex-col gap-unit">
+            <a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+              href="#"
+              >PRIVACY POLICY</a
+            >
+            <a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+              href="#"
+              >TERMS OF SERVICE</a
+            >
+          </div>
+          <div class="flex flex-col gap-unit">
+            <a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300 font-bold text-primary"
+              href="#"
+              >NEWSLETTER SIGNUP</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

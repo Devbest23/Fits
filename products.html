@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Productos FITS</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/main.js"></script>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background text-on-background min-h-screen flex flex-col">
+    <!-- TopNavBar -->
+    <nav
+      class="bg-surface/90 dark:bg-surface/90 backdrop-blur-md sticky top-0 w-full border-b border-outline-variant shadow-sm z-50"
+    >
+      <div
+        class="flex justify-between items-center px-margin-desktop max-w-container-max mx-auto h-20"
+      >
+        <a
+          class="font-display-xl text-headline-lg font-extrabold text-primary dark:text-primary"
+          href="index.html"
+        >
+          FITS
+        </a>
+        <div class="hidden md:flex gap-lg items-center">
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary-fixed transition-colors"
+            href="index.html"
+            >INICIO</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-primary-fixed-dim border-b-2 border-primary-fixed-dim pb-1"
+            href="products.html"
+            >PRODUCTOS</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary-fixed transition-colors"
+            href="ofertas.html"
+            >OFERTAS</a
+          >
+        </div>
+        <div class="flex gap-md items-center">
+          <button
+            class="hover:scale-105 transition-transform duration-200 active:scale-95 duration-150 text-on-surface"
+          >
+            <span class="material-symbols-outlined" data-icon="search"
+              >search</span
+            >
+          </button>
+          <a
+            href="carrito.html"
+            class="hover:scale-105 transition-transform duration-200 active:scale-95 duration-150 text-on-surface relative"
+          >
+            <span class="material-symbols-outlined" data-icon="shopping_cart"
+              >shopping_cart</span
+            >
+            <span
+              class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-mono"
+              >3</span
+            >
+          </a>
+          <button
+            class="hover:scale-105 transition-transform duration-200 active:scale-95 duration-150 text-on-surface"
+          >
+            <span class="material-symbols-outlined" data-icon="person"
+              >person</span
+            >
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main
+      class="flex-grow px-margin-desktop py-2xl max-w-[1280px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-gutter"
+    >
+      <!-- Sidebar Filters -->
+      <aside class="md:col-span-3 space-y-xl">
+        <div>
+          <h2
+            class="font-headline-sm text-headline-sm text-primary mb-md pb-sm border-b technical-border"
+          >
+            FILTERS
+          </h2>
+          <div class="space-y-lg">
+            <!-- Category -->
+            <div>
+              <h3
+                class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-sm"
+              >
+                CATEGORÍA
+              </h3>
+              <div class="space-y-sm">
+                <label
+                  class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-sm rounded transition-colors"
+                >
+                  <input
+                    class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary focus:ring-offset-0"
+                    type="checkbox"
+                  />
+                  <span class="font-body-md text-body-md text-on-surface"
+                    >Ropa de Entrenamiento</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-sm rounded transition-colors"
+                >
+                  <input
+                    checked=""
+                    class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary focus:ring-offset-0"
+                    type="checkbox"
+                  />
+                  <span class="font-body-md text-body-md text-on-surface"
+                    >Zapatillas de Running</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-sm rounded transition-colors"
+                >
+                  <input
+                    class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary focus:ring-offset-0"
+                    type="checkbox"
+                  />
+                  <span class="font-body-md text-body-md text-on-surface"
+                    >Estilo de Vida</span
+                  >
+                </label>
+                <label
+                  class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-sm rounded transition-colors"
+                >
+                  <input
+                    class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary focus:ring-offset-0"
+                    type="checkbox"
+                  />
+                  <span class="font-body-md text-body-md text-on-surface"
+                    >Accesorios</span
+                  >
+                </label>
+              </div>
+            </div>
+            <!-- Size -->
+            <div>
+              <h3
+                class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-sm"
+              >
+                TALLA
+              </h3>
+              <div class="flex flex-wrap gap-sm">
+                <button
+                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
+                >
+                  XS
+                </button>
+                <button
+                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm bg-primary text-on-primary"
+                >
+                  S
+                </button>
+                <button
+                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
+                >
+                  M
+                </button>
+                <button
+                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
+                >
+                  L
+                </button>
+                <button
+                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
+                >
+                  XL
+                </button>
+              </div>
+            </div>
+            <!-- Price Range -->
+            <div>
+              <h3
+                class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-sm"
+              >
+                PRECIO
+              </h3>
+              <div class="px-sm">
+                <input
+                  class="w-full accent-primary h-1 bg-surface-variant rounded-full appearance-none"
+                  max="500"
+                  min="0"
+                  type="range"
+                  value="250"
+                />
+                <div
+                  class="flex justify-between mt-sm font-mono text-label-sm text-on-surface-variant"
+                >
+                  <span>$0</span>
+                  <span>$500+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <!-- Product Grid -->
+      <section class="md:col-span-9">
+        <div
+          class="flex justify-between items-end mb-lg pb-sm border-b technical-border"
+        >
+          <h1 class="font-headline-md text-headline-md text-primary">
+            COLECCIONES
+          </h1>
+          <span class="font-mono text-label-sm text-on-surface-variant"
+            >MOSTRANDO 24 RESULTADOS</span
+          >
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+          <!-- Product Card 1 -->
+          <div
+            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
+          >
+            <div
+              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A high-quality product shot of a sleek, modern athletic training shirt in dark navy. The lighting is crisp and technical, highlighting the moisture-wicking fabric texture. The background is a stark, minimal studio setup in light grey, emphasizing the product's performance-oriented design. The aesthetic is clean, premium, and focused on athletic excellence."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq1PynqRPMEhotQGcEP-tgcFsV5vKP8JqeqqfnhCyn5IO9HM-FGjvtD03doyTMo98MFJJoKEgvJejLiGM7HY7chWIVKuMT3Bueo1zq8_J1h3-bg0FmatsGqu5lAtYUWHh-zeAboIJYt-XSsnsDwlBfsrJqk9hqCoP6oMhxjhgiFMkoNGP_XGEGQkTuoRcuNsK6LRvIcl8aOtOg08n5i0nsTTq2Xy_GJ7YdpEWZxYsPyD76uuu216kd-g"
+              />
+              <div
+                class="absolute top-sm right-sm bg-surface/90 backdrop-blur px-sm py-xs rounded font-mono text-label-caps text-primary technical-border"
+              >
+                NEW
+              </div>
+            </div>
+            <div class="p-md flex flex-col flex-grow bg-surface">
+              <div
+                class="font-mono text-label-caps text-on-surface-variant mb-xs"
+              >
+                TRAINING GEAR
+              </div>
+              <h3
+                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
+              >
+                AeroKnit Performance Tee
+              </h3>
+              <div class="mt-auto flex items-center justify-between">
+                <span
+                  class="font-mono text-body-lg text-on-surface font-semibold"
+                  >$65.00</span
+                >
+                <button
+                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="add_shopping_cart"
+                    >add_shopping_cart</span
+                  >
+                  AGREGAR
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 2 -->
+          <div
+            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
+          >
+            <div
+              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A dynamic product photograph of premium running shoes. The shoes feature a lightweight, breathable mesh upper in crisp white with subtle blue accents and a thick, highly-engineered aerodynamic sole. Shot in a brightly lit, sterile studio environment against a white background to emphasize technical precision and speed. The mood is energetic and advanced."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnlQ_FXd8IHHJA_aortsGfUB0Hcgb2WKXilesCnhG1kpepMo5ko5QnCOkkS34nIK_iylq1wGC6Uu1fo9Q6g0SabaI2O1iMfwfI7i8MIKT67H5DmQCeCDDDEAvjBkjLu6Z2Ddi2DhYqewYIzcRJEhoiW4GhXUjOgIdGfbjdd3VLN__IBq9ykzxiRKsu1nMbNgVFE6SC5979Hja5JizrFyw19GkUC0fk9UY_gMhkdXDx6d3YYSNL1CR9oA"
+              />
+            </div>
+            <div class="p-md flex flex-col flex-grow bg-surface">
+              <div
+                class="font-mono text-label-caps text-on-surface-variant mb-xs"
+              >
+                ZAPATILLAS
+              </div>
+              <h3
+                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
+              >
+                Velocity ProX Marathon
+              </h3>
+              <div class="mt-auto flex items-center justify-between">
+                <span
+                  class="font-mono text-body-lg text-on-surface font-semibold"
+                  >$180.00</span
+                >
+                <button
+                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="add_shopping_cart"
+                    >add_shopping_cart</span
+                  >
+                  AGREGAR
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 3 -->
+          <div
+            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
+          >
+            <div
+              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A stylized product image of a high-tech windbreaker jacket in deep charcoal grey. The fabric has a subtle sheen, indicating weather resistance. The lighting is dramatic, casting structured shadows that highlight the garment's technical tailoring and precise seams. Set against a minimalist light background, conveying a sleek, modern, athletic lifestyle aesthetic."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpnLZ3IANVc3GVuOxPAb95KZNx8ylgyFgC4BxZ-9VZDKG3o3Ru49E57q_oExDFf1KElyKgQ6KgGrRB2bZ_J34fmbcLunZugfAqEHqOISfRgoveC30z49mZnN8LVt4P4UHJaAlMF5JQROgoPgY4dtnSwvCYvTK5JKZ_2yJrx_hcWVAiCeJMVMZrLLtIP002wPL4UEoRSi13aFRuZrB6IkMCkUZOWZ14ypGc6udJZAUUcXcYGpPTvszMhA"
+              />
+              <div
+                class="absolute top-sm right-sm bg-surface/90 backdrop-blur px-sm py-xs rounded font-mono text-label-caps text-error technical-border"
+              >
+                SALE
+              </div>
+            </div>
+            <div class="p-md flex flex-col flex-grow bg-surface">
+              <div
+                class="font-mono text-label-caps text-on-surface-variant mb-xs"
+              >
+                ESTILO DE VIDA
+              </div>
+              <h3
+                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
+              >
+                Element Shield Windbreaker
+              </h3>
+              <div class="mt-auto flex items-center justify-between">
+                <div class="flex flex-col">
+                  <span
+                    class="font-mono text-label-sm text-on-surface-variant line-through"
+                    >$145.00</span
+                  >
+                  <span class="font-mono text-body-lg text-error font-semibold"
+                    >$115.00</span
+                  >
+                </div>
+                <button
+                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="add_shopping_cart"
+                    >add_shopping_cart</span
+                  >
+                  AGREGAR
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 4 -->
+          <div
+            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
+          >
+            <div
+              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A close-up product shot of athletic compression tights in black. The image emphasizes the advanced panel construction and robust stitching. Shot with hard, high-contrast lighting in a clean studio environment to highlight the technical fabric properties. The overall feel is strong, durable, and highly engineered for athletic performance."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANZqzfWsQAN6GPaaHLdOAiVGthP6NSsjhvlSCIU946DiYpdYzcFgy4SWjv2nyjnx5Qzc_A3-hTLrfIYPbX3kgZ047kFbl41wVrl9qd-ytoYTVrs5LAsGwF9bsz1AVUSOby1Xq_D33rPqMm8kNPfC9pfK3FN5pNo23I5eb1vaRx11FQMh55hHgVKEcH5tbPf-eVY1H6m5K7C8xcIqm0s8ygHyktvee56-kpeipQuN0k8kpHvdUIq07_tA"
+              />
+            </div>
+            <div class="p-md flex flex-col flex-grow bg-surface">
+              <div
+                class="font-mono text-label-caps text-on-surface-variant mb-xs"
+              >
+                ROPA DE ENTRENAMIENTO
+              </div>
+              <h3
+                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
+              >
+                Pantalones de Compresión Core
+              </h3>
+              <div class="mt-auto flex items-center justify-between">
+                <span
+                  class="font-mono text-body-lg text-on-surface font-semibold"
+                  >$85.00</span
+                >
+                <button
+                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="add_shopping_cart"
+                    >add_shopping_cart</span
+                  >
+                  AGREGAR
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 5 -->
+          <div
+            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
+          >
+            <div
+              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A premium shot of a technical athletic backpack in navy blue. The bag features multiple utility straps, reinforced zippers, and a structured, angular design. The lighting is clean and even, set against a stark white background to emphasize the bag's utilitarian and organized aesthetic. It looks ready for the gym or a commute."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI9NBHFtrBVjoKyv5iFBzBySLQ1oJ-QFU3-lND53RdJtzoZn9LeQ60YSBTsrd_yZrWTg9c62SF9q9MzWHnfpdGQfz4Wm8OPVqVzojS1uzAcRQ4gHgHsbjK_wF4yMwqrqZVXvrmQBsKhpwt0qqB25Sw7GB_B2RKazO7dTgByHTVlXvEoO8ZmpMnbtoDJjsI-wxYKoo-bwOzweTEw96NRwn7Rgi7kHBpIrtGAJtygSUYbjyJTL50oPES3w"
+              />
+            </div>
+            <div class="p-md flex flex-col flex-grow bg-surface">
+              <div
+                class="font-mono text-label-caps text-on-surface-variant mb-xs"
+              >
+                ACCESSORIES
+              </div>
+              <h3
+                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
+              >
+                Mochila Táctica Transit
+              </h3>
+              <div class="mt-auto flex items-center justify-between">
+                <span
+                  class="font-mono text-body-lg text-on-surface font-semibold"
+                  >$120.00</span
+                >
+                <button
+                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="add_shopping_cart"
+                    >add_shopping_cart</span
+                  >
+                  AGREGAR
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 6 -->
+          <div
+            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
+          >
+            <div
+              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A sleek product photograph of a modern fitness smartwatch with a matte black metal casing and a durable silicone strap. The watch face displays minimalist, bright blue data metrics. The background is a soft, off-white studio setting. The image exudes high-tech precision, data-driven performance, and premium build quality."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAmG6XlCBhIBJ72UA0jRCLmX_6uttxBHY_PkKUBdrOrg5KujHorKTM2KxkaVNqxLi-S7wGVEHBUEOnBA4OD46oQyLoT8eAtykEp7rnTgvjH92it7AokVEh9UOmrafYn7_cS45ELIFUjQlprQ-lQg9Y_PxSfXuf8l4C798EutGAbyH9ctfu3aQAAnGqAck30RpKYCuqCbkS8XMwIQXxYAgl40aZULUIgQvDhVzMwf7ZGfKEbnrH80MoqA"
+              />
+            </div>
+            <div class="p-md flex flex-col flex-grow bg-surface">
+              <div
+                class="font-mono text-label-caps text-on-surface-variant mb-xs"
+              >
+                ACCESSORIES
+              </div>
+              <h3
+                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
+              >
+                Reloj de Métricas
+              </h3>
+              <div class="mt-auto flex items-center justify-between">
+                <span
+                  class="font-mono text-body-lg text-on-surface font-semibold"
+                  >$250.00</span
+                >
+                <button
+                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px]"
+                    data-icon="add_shopping_cart"
+                    >add_shopping_cart</span
+                  >
+                  AGREGAR
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="mt-xl flex justify-center items-center gap-sm">
+          <button
+            class="w-10 h-10 technical-border rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors"
+          >
+            <span class="material-symbols-outlined" data-icon="chevron_left"
+              >chevron_left</span
+            >
+          </button>
+          <button
+            class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm bg-primary text-on-primary"
+          >
+            1
+          </button>
+          <button
+            class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-surface-container-low transition-colors text-on-surface"
+          >
+            2
+          </button>
+          <button
+            class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-surface-container-low transition-colors text-on-surface"
+          >
+            3
+          </button>
+          <button
+            class="w-10 h-10 technical-border rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors"
+          >
+            <span class="material-symbols-outlined" data-icon="chevron_right"
+              >chevron_right</span
+            >
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-stack-lg border-t border-outline-variant/30 mt-auto"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto h-full"
+      >
+        <div class="col-span-1 md:col-span-4 mb-xl">
+          <div
+            class="font-display-xl text-headline-lg-mobile font-black text-primary"
+          >
+            FITS
+          </div>
+        </div>
+        <div class="flex flex-col gap-sm">
+          <a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-container transition-colors transition-all duration-300"
+            href="#"
+            >ATENCIÓN AL CLIENTE</a
+          >
+          <a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-container transition-colors transition-all duration-300"
+            href="#"
+            >UBICACIÓN DE TIENDAS</a
+          >
+        </div>
+        <div class="flex flex-col gap-sm">
+          <a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-container transition-colors transition-all duration-300"
+            href="#"
+            >POLÍTICA DE PRIVACIDAD</a
+          >
+          <a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-container transition-colors transition-all duration-300"
+            href="#"
+            >TÉRMINOS DE SERVICIO</a
+          >
+        </div>
+        <div
+          class="col-span-1 md:col-span-4 mt-xl pt-lg border-t border-outline-variant/30 text-center md:text-left"
+        >
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            © 2024 APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

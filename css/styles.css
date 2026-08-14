@@ -1,0 +1,59 @@
+/* FITS - Custom Styles */
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+.material-symbols-outlined.filled {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* Index Page */
+.hard-shadow {
+  box-shadow: 4px 4px 0px 0px rgba(24, 54, 120, 1);
+}
+.glass-panel {
+  background: rgba(250, 248, 255, 0.7);
+  backdrop-filter: blur(10px);
+}
+.grid-bg {
+  background-size: 24px 24px;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(20, 21, 62, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(20, 21, 62, 0.05) 1px,
+      transparent 1px
+    );
+}
+
+/* Products Page */
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+}
+.font-headline,
+.font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+.technical-border {
+  border: 1px solid rgba(17, 18, 62, 0.1);
+}
+.technical-shadow:active {
+  box-shadow: 0px 4px 0px 0px #183678;
+  transform: translateY(2px);
+}
