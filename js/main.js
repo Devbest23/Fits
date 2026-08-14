@@ -122,3 +122,16 @@ tailwind.config = {
     },
   },
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const icon = document.getElementById("menu-icon");
+  if (toggle && menu && icon) {
+    toggle.addEventListener("click", function () {
+      const isOpen = !menu.classList.contains("hidden");
+      menu.classList.toggle("hidden");
+      icon.textContent = isOpen ? "menu" : "close";
+    });
+  }
+});

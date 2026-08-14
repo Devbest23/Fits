@@ -63,11 +63,35 @@
             <span class="material-symbols-outlined">shopping_cart</span>
           </a>
           <button
+            id="menu-toggle"
             aria-label="Menu"
             class="md:hidden hover:scale-105 active:scale-95 transition-transform duration-200"
           >
-            <span class="material-symbols-outlined">menu</span>
+            <span class="material-symbols-outlined" id="menu-icon">menu</span>
           </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-outline-variant bg-surface/95 backdrop-blur-md"
+      >
+        <div class="flex flex-col px-margin-mobile py-lg gap-md">
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-primary py-sm border-b border-outline-variant"
+            href="index.html"
+            >INICIO</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm border-b border-outline-variant"
+            href="products.html"
+            >PRODUCTOS</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm"
+            href="ofertas.html"
+            >OFERTAS</a
+          >
         </div>
       </div>
     </nav>

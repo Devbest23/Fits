@@ -21,79 +21,75 @@
   >
     <!-- TopNavBar -->
     <nav
-      class="bg-surface/90 backdrop-blur-md sticky top-0 w-full border-b border-outline-variant shadow-sm z-50"
+      class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-300"
     >
       <div
         class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20"
       >
         <!-- Brand -->
         <a
-          class="font-display-lg text-headline-sm md:text-headline-md font-extrabold text-primary flex items-center gap-2"
+          class="font-display-lg-mobile md:text-[32px] text-primary font-extrabold tracking-tighter"
           href="index.html"
         >
-          <span
-            class="material-symbols-outlined"
-            data-weight="fill"
-            style="font-variation-settings: &quot;FILL&quot; 1"
-            >change_history</span
-          >
           FITS
         </a>
-        <!-- Navigation Links (Hidden on Mobile) -->
-        <ul
-          class="hidden md:flex gap-lg font-label-caps text-label-caps uppercase tracking-widest"
-        >
-          <li>
-            <a
-              class="text-on-surface hover:text-primary-fixed transition-colors"
-              href="index.html"
-              >INICIO</a
-            >
-          </li>
-          <li>
-            <a
-              class="text-on-surface hover:text-primary-fixed transition-colors"
-              href="products.html"
-              >PRODUCTOS</a
-            >
-          </li>
-          <li>
-            <a
-              class="text-on-surface hover:text-primary-fixed transition-colors"
-              href="ofertas.html"
-              >OFERTAS</a
-            >
-          </li>
-        </ul>
-        <!-- Trailing Icons -->
-        <div class="flex items-center gap-4 text-on-surface">
-          <button
-            aria-label="Search"
-            class="hover:scale-105 active:scale-95 transition-transform duration-200"
+        <!-- Nav Links (Desktop) -->
+        <div class="hidden md:flex gap-lg items-center">
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
+            href="index.html"
+            >INICIO</a
           >
-            <span class="material-symbols-outlined">search</span>
-          </button>
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
+            href="products.html"
+            >PRODUCTOS</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
+            href="ofertas.html"
+            >OFERTAS</a
+          >
+        </div>
+        <!-- Actions -->
+        <div class="flex items-center gap-md text-primary">
           <a
             href="carrito.html"
-            aria-label="Cart"
-            class="hover:scale-105 active:scale-95 transition-transform duration-200 text-primary-fixed-dim relative"
+            aria-label="Shopping Cart"
+            class="hover:scale-105 active:scale-95 transition-transform duration-200"
           >
-            <span
-              class="material-symbols-outlined"
-              style="font-variation-settings: &quot;FILL&quot; 1"
-              >shopping_cart</span
-            >
-            <span
-              class="absolute -top-2 -right-2 bg-error text-on-error font-label-caps text-[10px] w-4 h-4 flex items-center justify-center rounded-full"
-              >2</span
-            >
+            <span class="material-symbols-outlined">shopping_cart</span>
           </a>
           <button
-            aria-label="Profile"
-            class="hover:scale-105 active:scale-95 transition-transform duration-200 hidden md:block"
+            id="menu-toggle"
+            aria-label="Menu"
+            class="md:hidden hover:scale-105 active:scale-95 transition-transform duration-200"
           >
-            <span class="material-symbols-outlined">person</span>
+            <span class="material-symbols-outlined" id="menu-icon">menu</span>
           </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-outline-variant bg-surface/95 backdrop-blur-md"
+      >
+        <div class="flex flex-col px-margin-mobile py-lg gap-md">
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm border-b border-outline-variant"
+            href="index.html"
+            >INICIO</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm border-b border-outline-variant"
+            href="products.html"
+            >PRODUCTOS</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm"
+            href="ofertas.html"
+            >OFERTAS</a
+          >
         </div>
       </div>
     </nav>
@@ -419,56 +415,95 @@
     </main>
     <!-- Footer -->
     <footer
-      class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-2xl border-t border-outline-variant"
+      class="bg-surface-container-lowest text-primary py-stack-lg border-t border-outline-variant mt-2xl"
     >
       <div
-        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto"
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto py-xl"
       >
         <!-- Brand Column -->
-        <div class="md:col-span-1 flex flex-col justify-between mb-lg md:mb-0">
+        <div class="col-span-1 md:col-span-1 flex flex-col gap-md">
           <span
-            class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg font-black text-primary"
+            class="font-display-lg-mobile md:font-display-lg font-black text-primary tracking-tighter"
             >FITS</span
           >
-          <p
-            class="font-body-md text-body-md text-on-surface-variant mt-xl max-w-[250px] uppercase text-[10px] tracking-widest"
-          >
-            © 2024 APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
+          <p class="font-body-sm text-sm text-on-surface-variant">
+            Diseñado para atletas de élite. Equipamiento de precisión para
+            rendimiento máximo.
           </p>
         </div>
-        <!-- Links -->
-        <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-lg">
-          <div class="flex flex-col gap-unit">
-            <a
-              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-              href="#"
-              >CUSTOMER SUPPORT</a
+        <!-- Links Columns -->
+        <div class="col-span-1 flex flex-col gap-sm">
+          <h4
+            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
+          >
+            SOPORTE
+          </h4>
+          <a
+            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+            href="#"
+            >ATENCIÓN AL CLIENTE</a
+          >
+          <a
+            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+            href="#"
+            >UBICACIÓN DE TIENDAS</a
+          >
+        </div>
+        <div class="col-span-1 flex flex-col gap-sm">
+          <h4
+            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
+          >
+            LEGAL
+          </h4>
+          <a
+            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+            href="#"
+            >POLÍTICA DE PRIVACIDAD</a
+          >
+          <a
+            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
+            href="#"
+            >TÉRMINOS DE SERVICIO</a
+          >
+        </div>
+        <div class="col-span-1 flex flex-col gap-sm">
+          <h4
+            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
+          >
+            COMUNICACIONES
+          </h4>
+          <div class="flex mt-sm w-full max-w-xs">
+            <input
+              class="w-full bg-surface border border-outline-variant px-sm py-xs font-label-caps text-xs focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary h-10 rounded-none"
+              placeholder="INGRESA TU EMAIL"
+              type="email"
+            />
+            <button
+              class="bg-primary text-on-primary px-sm flex items-center justify-center border border-primary h-10 hover:bg-primary-container transition-colors"
             >
-            <a
-              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-              href="#"
-              >STORE LOCATOR</a
-            >
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </button>
           </div>
-          <div class="flex flex-col gap-unit">
-            <a
-              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-              href="#"
-              >PRIVACY POLICY</a
-            >
-            <a
-              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-              href="#"
-              >TERMS OF SERVICE</a
-            >
-          </div>
-          <div class="flex flex-col gap-unit">
-            <a
-              class="font-body-md text-body-md text-on-surface-variant hover:text-primary-container transition-colors duration-300 font-bold text-primary"
-              href="#"
-              >NEWSLETTER SIGNUP</a
-            >
-          </div>
+        </div>
+      </div>
+      <div
+        class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto pt-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-sm"
+      >
+        <span class="font-label-caps text-xs text-on-surface-variant">
+          © 2024 APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
+        </span>
+        <div class="flex gap-md text-on-surface-variant">
+          <!-- Social placeholders -->
+          <span
+            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
+            >language</span
+          >
+          <span
+            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
+            >share</span
+          >
         </div>
       </div>
     </footer>
