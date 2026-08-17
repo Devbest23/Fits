@@ -332,6 +332,25 @@ body {
   .hero-section {
     min-height: 0;
   }
+  .hero-content {
+    padding: 2rem 0;
+  }
+  .glass-panel {
+    padding: 1.25rem !important;
+  }
+  .glass-panel .badge {
+    margin-bottom: 0.75rem !important;
+  }
+  .hero-title {
+    font-size: 30px;
+    margin-bottom: 0.75rem !important;
+  }
+  .glass-panel p {
+    display: none;
+  }
+  .glass-panel .btn {
+    padding: 0.6rem 1.1rem !important;
+  }
 }
 
 .hero-title {
@@ -802,4 +821,24 @@ html {
 /* Enlaces del footer con pequeño desplazamiento al hover */
 .footer-link {
   display: inline-block;
+}
+
+/* ============================================================
+   16. Soporte táctil (móviles): cambio de imagen al tocar
+   ============================================================ */
+@media (hover: none), (pointer: coarse) {
+  .card:active .card-img-cover,
+  .card:active .product-zoom {
+    transform: scale(1.05);
+  }
+  .recommend-card:active .product-zoom,
+  .cart-item:active .product-zoom {
+    transform: scale(1.05);
+  }
+  .product-card:active .img-wrap img {
+    transform: scale(1.06);
+  }
+  .offer-card:active .offer-img {
+    transform: scale(1.05);
+  }
 }
