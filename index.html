@@ -2,516 +2,400 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FITS - DISEÑADO PARA EL RENDIMIENTO</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="js/main.js"></script>
+    <link rel="icon" type="image/png" href="img/fits%20two.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link href="css/styles.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
       rel="stylesheet"
     />
   </head>
-  <body
-    class="bg-background text-on-background font-body-md min-h-screen flex flex-col grid-bg"
-  >
-    <!-- TopNavBar -->
+  <body class="bg-background text-on-background d-flex flex-column min-vh-100 grid-bg">
+    <!-- ===== NAVBAR ===== -->
     <nav
-      class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-300"
+      class="navbar navbar-expand-md sticky-top bg-surface-glass border-bottom border-outline-variant shadow-sm"
     >
-      <div
-        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20"
-      >
-        <!-- Brand -->
-        <a
-          class="font-display-lg-mobile md:text-[32px] text-primary font-extrabold tracking-tighter"
-          href="index.html"
-        >
-          FITS
+      <div class="container-lg">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="img/fits%20two.png" alt="FITS" height="46" />
         </a>
-        <!-- Nav Links (Desktop) -->
-        <div class="hidden md:flex gap-lg items-center">
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b-2 border-primary pb-1"
-            href="index.html"
-            >INICIO</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
-            href="products.html"
-            >PRODUCTOS</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
-            href="ofertas.html"
-            >OFERTAS</a
-          >
-        </div>
-        <!-- Actions -->
-        <div class="flex items-center gap-md text-primary">
-          <a
-            href="carrito.html"
-            aria-label="Shopping Cart"
-            class="hover:scale-105 active:scale-95 transition-transform duration-200"
-          >
+        <div class="d-flex align-items-center gap-3">
+          <a href="carrito.html" class="nav-icon" aria-label="Carrito de compras">
             <span class="material-symbols-outlined">shopping_cart</span>
           </a>
           <button
-            id="menu-toggle"
-            aria-label="Menu"
-            class="md:hidden hover:scale-105 active:scale-95 transition-transform duration-200"
+            class="navbar-toggler p-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+            aria-controls="navMenu"
+            aria-expanded="false"
+            aria-label="Abrir menú"
           >
-            <span class="material-symbols-outlined" id="menu-icon">menu</span>
+            <span class="material-symbols-outlined text-primary">menu</span>
           </button>
         </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden border-t border-outline-variant bg-surface/95 backdrop-blur-md"
-      >
-        <div class="flex flex-col px-margin-mobile py-lg gap-md">
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-primary py-sm border-b border-outline-variant"
-            href="index.html"
-            >INICIO</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm border-b border-outline-variant"
-            href="products.html"
-            >PRODUCTOS</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm"
-            href="ofertas.html"
-            >OFERTAS</a
-          >
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-md-auto align-items-md-center gap-lg-4 py-3 py-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ofertas.html">Ofertas</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
-    <!-- Main Content -->
-    <main class="flex-grow flex flex-col">
-      <!-- Hero Section -->
-      <section
-        class="relative w-full min-h-[819px] flex items-center pt-2xl pb-2xl md:pt-0 md:pb-0 overflow-hidden border-b border-outline-variant"
-      >
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0 bg-surface-variant">
+
+    <!-- ===== MAIN ===== -->
+    <main class="flex-grow-1 d-flex flex-column">
+      <!-- Hero -->
+      <section class="hero-section">
+        <div class="hero-bg">
           <div
-            class="bg-cover bg-center bg-no-repeat w-full h-full opacity-60"
-            data-alt="A cinematic, high-contrast shot of an elite athlete sprinting in a modern, brutalist concrete stadium. The lighting is dramatic, emphasizing muscle definition and the advanced texture of their performance sportswear. The overall color grading leans towards cool tech-blue tones with striking white highlights, embodying a professional, data-driven athletic aesthetic."
             style="
-              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDl1GM6o_YT0ikvTNsQbYOijx_R4aH8u7e-Ob4S1eIBQ1JZUxWSy68NBiUe6Rhd3UslOodK_YkSp4LFCHjuUtkBT7PVfwJcoa6QAcw6JWdDARBEM4ZGLQsAfVYqc64ReX3eK3GBdXq4JcVZPpTlEyUbsJnMbWAGvVKenGkC6OrCWD0gc-SB3pFj2pmAroIWUbpFtD5RN2767cQraMgUWw3A3R2xprNjElHlsi1MEmLiiNDjVM-uvAuMaA&quot;);
+              background-image: url(&quot;img/hero.jpg&quot;);
             "
           ></div>
         </div>
-        <div
-          class="relative z-10 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center gap-2xl"
-        >
-          <div
-            class="md:w-1/2 flex flex-col gap-lg glass-panel p-lg border border-outline-variant backdrop-blur-md bg-surface/80"
-          >
-            <div
-              class="inline-flex items-center gap-sm border border-outline-variant rounded-full px-sm py-xs w-fit bg-surface"
-            >
-              <span class="w-2 h-2 rounded-full bg-primary"></span>
-              <span
-                class="font-label-caps text-label-caps text-primary tracking-widest"
-                >SISTEMA EN LÍNEA // VER. 4.0</span
-              >
-            </div>
-            <h1
-              class="font-display-lg-mobile md:font-display-lg text-primary uppercase font-bold leading-tight"
-            >
-              DISEÑADO<br />PARA EL<br />RENDIMIENTO
-            </h1>
-            <p
-              class="font-body-lg text-body-lg text-on-surface-variant max-w-md"
-            >
-              Equipamiento calibrado para rendimiento de élite. Telas de
-              precisión diseñadas para optimizar la eficiencia biomecánica y la
-              regulación de temperatura durante entrenamientos de alta
-              intensidad.
-            </p>
-            <div class="flex gap-md pt-sm">
-              <a
-                href="products.html"
-                class="bg-primary text-on-primary font-label-caps text-label-caps px-lg py-md hover:bg-primary-container transition-colors flex items-center gap-sm hard-shadow"
-              >
-                EXPLORAR COLECCIÓN
-                <span class="material-symbols-outlined text-sm"
-                  >arrow_forward</span
+        <div class="container-lg hero-content">
+          <div class="row">
+            <div class="col-lg-6 col-md-9">
+              <div class="glass-panel border border-outline-variant p-4 p-lg-5">
+                <span
+                  class="badge rounded-pill border border-outline-variant bg-surface text-primary label-caps d-inline-flex align-items-center gap-2 px-3 py-2 mb-4 fw-normal"
                 >
-              </a>
+                  <span
+                    class="rounded-circle bg-primary d-inline-block"
+                    style="width: 8px; height: 8px; flex-shrink: 0"
+                  ></span>
+                  SISTEMA EN LÍNEA // VER. 4.0
+                </span>
+                <h1
+                  class="font-headline text-primary fw-bold text-uppercase hero-title mb-4"
+                >
+                  Diseñado<br />para el<br />rendimiento
+                </h1>
+                <p class="text-on-surface-variant mb-4" style="max-width: 30rem; font-size: 18px">
+                  Equipamiento calibrado para rendimiento de élite. Telas de
+                  precisión diseñadas para optimizar la eficiencia biomecánica y la
+                  regulación de temperatura durante entrenamientos de alta
+                  intensidad.
+                </p>
+                <a
+                  href="products.html"
+                  class="btn btn-primary hard-shadow label-caps d-inline-flex align-items-center gap-2 px-4 py-3"
+                >
+                  EXPLORAR COLECCIÓN
+                  <span class="material-symbols-outlined" style="font-size: 18px">arrow_forward</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- Trending Tech Section (Bento Grid) -->
-      <section
-        class="w-full py-2xl max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop"
-      >
-        <div
-          class="flex justify-between items-end mb-xl border-b border-outline-variant pb-md"
-        >
-          <div>
-            <h2
-              class="font-headline-md text-headline-md text-primary font-bold"
-            >
-              ÚLTIMAS CALIBRACIONES
-            </h2>
-            <p class="font-body-md text-on-surface-variant mt-sm">
-              Ropa de rendimiento basada en datos.
-            </p>
-          </div>
-          <a
-            href="products.html"
-            class="hidden md:flex items-center gap-xs font-label-caps text-label-caps text-primary hover:text-primary-container transition-colors"
-          >
-            VER TODAS LAS ESPECIFICACIONES
-            <span class="material-symbols-outlined">chevron_right</span>
-          </a>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-          <!-- Large Featured Item -->
-          <a
-            href="products.html"
-            class="md:col-span-8 bg-surface border border-outline-variant group overflow-hidden relative min-h-[400px] flex flex-col justify-between"
-          >
-            <div class="absolute inset-0 z-0">
-              <div
-                class="bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105"
-                data-alt="Close-up studio shot of a high-tech running shoe featuring geometric, angular midsole structures and a breathable mesh upper in crisp white and navy blue. The lighting is clinical and sharp, highlighting the engineered textures and aerodynamic silhouette, set against a pristine white background to emphasize a modern, laboratory-grade aesthetic."
-                style="
-                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCu0su6u6b6B7sq_w3DxwpPsnkNGFzVWa4k1qK2bTb4N2Y0vYCITbG5NV17BkTVQCgmGVKLakG8pYvCH7_MRYuYCAOvphhWMspywK1M5NtILhT0KgPe1JlFYdNYsF2Mn82WmdRrwKn6E1-8LDCEnb7ZJGW9w1CZmYWmJTAKn7_6DS3uqHPEjWRP66GhO6HnIBgD8dra-atCenLqdFLho3kOuZiD4ec5GvrYIFpchECa7CyZ6mIZQczUrQ&quot;);
-                "
-              ></div>
-            </div>
-            <!-- Gradient overlay for text readability -->
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-surface-variant/90 via-surface-variant/20 to-transparent z-10"
-            ></div>
-            <div class="relative z-20 p-md flex justify-end">
-              <span
-                class="bg-surface text-primary font-label-caps text-label-caps px-sm py-xs border border-outline-variant"
-                >NUEVO</span
-              >
-            </div>
-            <div
-              class="relative z-20 p-lg glass-panel border-t border-outline-variant m-md mt-auto"
-            >
-              <h3
-                class="font-headline-sm text-headline-sm text-primary font-bold"
-              >
-                AERO-KNIT PRO ZAPATILLAS
-              </h3>
-              <div class="flex justify-between items-center mt-md">
-                <p class="font-body-md text-on-surface-variant">
-                  Sistema de propulsión con fibra de carbono.
-                </p>
-                <span
-                  class="font-label-caps text-label-caps text-primary bg-primary-fixed px-sm py-xs border border-primary/20"
-                  >185.00 EUR</span
-                >
-              </div>
-            </div>
-          </a>
-          <!-- Secondary Item 1 -->
+
+      <!-- Últimas calibraciones (Bento) -->
+      <section class="py-5">
+        <div class="container-lg">
           <div
-            class="md:col-span-4 bg-surface border border-outline-variant group overflow-hidden relative min-h-[400px] flex flex-col"
+            class="d-flex justify-content-between align-items-end border-bottom border-outline-variant pb-3 mb-4"
           >
-            <div class="h-2/3 bg-surface-variant relative overflow-hidden">
+            <div>
+              <h2 class="font-headline text-primary fw-bold mb-2 section-heading">
+                ÚLTIMAS CALIBRACIONES
+              </h2>
+              <p class="text-on-surface-variant mb-0">Ropa de rendimiento basada en datos.</p>
+            </div>
+            <a
+              href="products.html"
+              class="link-primary label-caps text-decoration-none d-none d-md-flex align-items-center gap-1"
+            >
+              VER TODAS LAS ESPECIFICACIONES
+              <span class="material-symbols-outlined" style="font-size: 18px">chevron_right</span>
+            </a>
+          </div>
+
+          <div class="row g-4">
+            <!-- Tarjeta destacada -->
+            <a href="products.html" class="col-md-8 feature-card">
               <div
-                class="bg-cover bg-center w-full h-full transition-transform duration-500 group-hover:scale-105"
-                data-alt="A sleek, long-sleeve compression shirt in dark navy blue, displayed flatly on a light grey textured background. The fabric shows subtle geometric paneled stitching designed for muscle support. The lighting is even and technical, creating a minimalist, catalog-style presentation of premium athletic wear."
+                class="card-img-cover"
                 style="
-                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDzoiiv74HtdSKSmmgECvKDE_jemp7EuenxbTBFrVkhX0w0doXbN3L40Pv-IeyGO2Sxez69VQgh3fXS4r1tXOqPRNLPYFSYXprBq6rexpNprH8cdK3zbfv9dwc8WLqC_WBdPCDOQCAOJQ4xLALELBEAWPtX3ptSgR7gDlCFHfW6ggVsMbQwqbldvJAl0S5fF71_SpFp1f2JX3KQR4mEWqB_F3vpTp4WO5o0hzR7NUkJpEW6Uxp5JrR6Fw&quot;);
+                  background-image: url(&quot;img/feature-zapatillas.jpg&quot;);
                 "
               ></div>
-            </div>
-            <div
-              class="h-1/3 p-md flex flex-col justify-between border-t border-outline-variant bg-surface"
-            >
-              <div>
-                <h3
-                  class="font-label-sm text-label-sm text-primary font-bold uppercase"
-                >
-                  COMPRESSION SHIRT MK-II
-                </h3>
-                <p
-                  class="text-xs text-on-surface-variant mt-xs font-label-caps"
-                >
-                  REGULACIÓN TÉRMICA
-                </p>
+              <div class="card-overlay"></div>
+              <div class="card-body-overlay d-flex justify-content-end p-3">
+                <span class="label-caps text-primary border border-outline-variant bg-surface px-2 py-1">
+                  NUEVO
+                </span>
               </div>
-              <div class="flex justify-between items-center mt-sm">
-                <span class="font-label-caps text-label-caps text-primary"
-                  >65.00 EUR</span
-                >
-                <button
-                  class="w-8 h-8 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
-                >
-                  <span class="material-symbols-outlined text-sm">add</span>
-                </button>
+              <div
+                class="card-body-overlay bg-surface border-top border-outline-variant p-4 m-3 mt-auto"
+              >
+                <h3 class="font-headline text-primary fw-bold mb-2">
+                  AERO-KNIT PRO ZAPATILLAS
+                </h3>
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                  <p class="text-on-surface-variant mb-0">Sistema de propulsión con fibra de carbono.</p>
+                  <span class="label-caps text-primary bg-primary-fixed px-2 py-1 border">185.00 EUR</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Tarjeta secundaria -->
+            <div class="col-md-4 card border border-outline-variant bg-surface overflow-hidden d-flex flex-column">
+              <div class="position-relative overflow-hidden" style="flex: 2">
+                <img
+                  src="img/shirt-mk2.jpg"
+                  alt="COMPRESSION SHIRT MK-II"
+                  class="w-100 h-100 object-fit-cover product-zoom"
+                />
+              </div>
+              <div
+                class="p-3 d-flex flex-column justify-content-between"
+                style="flex: 1; border-top: 1px solid var(--fits-outline-variant)"
+              >
+                <div>
+                  <h3 class="font-headline text-primary fw-bold text-uppercase mb-1" style="font-size: 13px">
+                    COMPRESSION SHIRT MK-II
+                  </h3>
+                  <p class="label-caps text-on-surface-variant small mb-0">REGULACIÓN TÉRMICA</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                  <span class="label-caps text-primary">65.00 EUR</span>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center p-0"
+                    style="width: 32px; height: 32px"
+                    aria-label="Agregar"
+                  >
+                    <span class="material-symbols-outlined" style="font-size: 18px">add</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-    <!-- FAQ Section -->
-    <section
-      class="w-full py-2xl max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop border-t border-outline-variant"
-    >
-      <div class="mb-xl">
-        <h2
-          class="font-headline-md text-headline-md text-primary font-bold uppercase"
-        >
-          PREGUNTAS FRECUENTES
-        </h2>
-        <p class="font-body-md text-on-surface-variant mt-sm">
-          Consultas frecuentes sobre nuestros sistemas de rendimiento.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-        <div class="border-b border-outline-variant pb-md">
-          <button
-            class="flex justify-between items-center w-full text-left group"
-          >
-            <span
-              class="font-label-caps text-label-caps text-primary tracking-widest"
-              >01 // ENVÍO INTERNACIONAL</span
-            >
-            <span
-              class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform"
-              >add</span
-            >
-          </button>
-          <p class="font-body-sm text-sm text-on-surface-variant mt-md">
-            Logística expresa para equipamiento de élite. Enviamos a más de 50
-            países con seguimiento en tiempo real y opciones de entrega carbono
-            neutral.
+
+    <!-- ===== FAQ ===== -->
+    <section class="py-5 border-top border-outline-variant">
+      <div class="container-lg">
+        <div class="mb-4">
+          <h2 class="font-headline text-primary fw-bold text-uppercase mb-2 section-heading">
+            PREGUNTAS FRECUENTES
+          </h2>
+          <p class="text-on-surface-variant mb-0">
+            Consultas frecuentes sobre nuestros sistemas de rendimiento.
           </p>
         </div>
-        <div class="border-b border-outline-variant pb-md">
-          <button
-            class="flex justify-between items-center w-full text-left group"
-          >
-            <span
-              class="font-label-caps text-label-caps text-primary tracking-widest"
-              >02 // DEVOLUCIONES Y CALIBRACIÓN</span
-            >
-            <span
-              class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform"
-              >add</span
-            >
-          </button>
-          <p class="font-body-sm text-sm text-on-surface-variant mt-md">
-            Garantía de rendimiento de 30 días. Si el ajuste no está optimizado
-            para tu rendimiento, devuélvelo en estado original para una
-            recalibración completa o reembolso.
-          </p>
-        </div>
-        <div class="border-b border-outline-variant pb-md">
-          <button
-            class="flex justify-between items-center w-full text-left group"
-          >
-            <span
-              class="font-label-caps text-label-caps text-primary tracking-widest"
-              >03 // ARQUITECTURA DE TALLAS</span
-            >
-            <span
-              class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform"
-              >add</span
-            >
-          </button>
-          <p class="font-body-sm text-sm text-on-surface-variant mt-md">
-            Nuestro equipamiento sigue un ajuste de compresión. Consulta nuestra
-            guía de tallas biométrica para medidas precisas basadas en masa
-            muscular y estatura.
-          </p>
-        </div>
-        <div class="border-b border-outline-variant pb-md">
-          <button
-            class="flex justify-between items-center w-full text-left group"
-          >
-            <span
-              class="font-label-caps text-label-caps text-primary tracking-widest"
-              >04 // TECNOLOGÍA TEXTIL</span
-            >
-            <span
-              class="material-symbols-outlined text-primary group-hover:rotate-45 transition-transform"
-              >add</span
-            >
-          </button>
-          <p class="font-body-sm text-sm text-on-surface-variant mt-md">
-            Utilizamos polímeros Aero-Knit y fibra de carbono. Todos los tejidos
-            están diseñados para máxima regulación térmica y absorción de
-            humedad.
-          </p>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button text-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq1"
+                aria-expanded="true"
+                aria-controls="faq1"
+              >
+                01 // ENVÍO INTERNACIONAL
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Logística expresa para equipamiento de élite. Enviamos a más de 50
+                países con seguimiento en tiempo real y opciones de entrega carbono
+                neutral.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button text-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq2"
+                aria-expanded="false"
+                aria-controls="faq2"
+              >
+                02 // DEVOLUCIONES Y CALIBRACIÓN
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Garantía de rendimiento de 30 días. Si el ajuste no está optimizado
+                para tu rendimiento, devuélvelo en estado original para una
+                recalibración completa o reembolso.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button text-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq3"
+                aria-expanded="false"
+                aria-controls="faq3"
+              >
+                03 // ARQUITECTURA DE TALLAS
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Nuestro equipamiento sigue un ajuste de compresión. Consulta nuestra
+                guía de tallas biométrica para medidas precisas basadas en masa
+                muscular y estatura.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button text-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faq4"
+                aria-expanded="false"
+                aria-controls="faq4"
+              >
+                04 // TECNOLOGÍA TEXTIL
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Utilizamos polímeros Aero-Knit y fibra de carbono. Todos los tejidos
+                están diseñados para máxima regulación térmica y absorción de
+                humedad.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Store Location Section -->
-    <section
-      class="w-full py-2xl bg-surface-container-low border-t border-outline-variant"
-    >
-      <div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-2xl items-center">
-          <div class="md:col-span-5 flex flex-col gap-lg">
-            <div>
-              <h2
-                class="font-headline-md text-headline-md text-primary font-bold uppercase"
-              >
-                TIENDA FITS
-              </h2>
-            </div>
-            <div class="flex flex-col gap-md">
-              <div class="flex gap-md">
-                <span class="material-symbols-outlined text-primary"
-                  >location_on</span
-                >
-              </div>
-              <div class="flex gap-md">
-                <span class="material-symbols-outlined text-primary"
-                  >schedule</span
-                >
-                <div class="font-body-md text-on-surface-variant">
-                  <p>MON - FRI: 10:00 - 20:00</p>
-                  <p>SAT: 11:00 - 19:00</p>
+
+    <!-- ===== TIENDA ===== -->
+    <section class="py-5 bg-surface-low border-top border-outline-variant">
+      <div class="container-lg">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-5">
+            <h2 class="font-headline text-primary fw-bold text-uppercase mb-4 section-heading">
+              TIENDA FITS
+            </h2>
+            <div class="d-flex flex-column gap-3 text-on-surface-variant">
+              <div class="d-flex gap-3 align-items-start">
+                <span class="material-symbols-outlined text-primary">location_on</span>
+                <div>
+                  <p class="mb-0">Calle del Rendimiento 12</p>
+                  <p class="mb-0">10115 Berlín, Alemania</p>
                 </div>
               </div>
-              <div class="flex gap-md">
+              <div class="d-flex gap-3 align-items-start">
+                <span class="material-symbols-outlined text-primary">schedule</span>
+                <div>
+                  <p class="mb-0">MON - FRI: 10:00 - 20:00</p>
+                  <p class="mb-0">SAT: 11:00 - 19:00</p>
+                </div>
+              </div>
+              <div class="d-flex gap-3 align-items-start">
                 <span class="material-symbols-outlined text-primary">call</span>
-                <p class="font-body-md text-on-surface-variant">
-                  +49 30 12345678
-                </p>
+                <p class="mb-0">+49 30 12345678</p>
               </div>
             </div>
-            <button
-              class="w-fit bg-primary text-on-primary font-label-caps text-label-caps px-lg py-md hover:bg-primary-container transition-colors hard-shadow"
-            >
+            <button type="button" class="btn btn-primary hard-shadow label-caps px-4 py-3 mt-4">
               CÓMO LLEGAR
             </button>
           </div>
-          <div
-            class="md:col-span-7 h-[400px] bg-surface-variant border border-outline-variant relative overflow-hidden"
-          >
-            <!-- Map Placeholder -->
-            <div class="absolute inset-0 grid-bg opacity-30"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="flex flex-col items-center gap-sm">
-                <span
-                  class="material-symbols-outlined text-primary text-headline-md"
-                  >map</span
-                >
-                <span class="font-label-caps text-label-caps text-primary"
-                  >MAPA INTERACTIVO</span
-                >
+          <div class="col-md-7">
+            <div class="map-placeholder">
+              <div class="grid-bg position-absolute top-0 start-0 w-100 h-100" style="opacity: 0.3"></div>
+              <div
+                class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center gap-2 text-center"
+              >
+                <span class="material-symbols-outlined text-primary" style="font-size: 40px">map</span>
+                <span class="label-caps text-primary">MAPA INTERACTIVO</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <footer
-      class="bg-surface-container-lowest text-primary py-stack-lg border-t border-outline-variant mt-2xl"
-    >
-      <div
-        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto py-xl"
-      >
-        <!-- Brand Column -->
-        <div class="col-span-1 md:col-span-1 flex flex-col gap-md">
-          <span
-            class="font-display-lg-mobile md:font-display-lg font-black text-primary tracking-tighter"
-            >FITS</span
-          >
-          <p class="font-body-sm text-sm text-on-surface-variant">
-            Diseñado para atletas de élite. Equipamiento de precisión para
-            rendimiento máximo.
-          </p>
-        </div>
-        <!-- Links Columns -->
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            SOPORTE
-          </h4>
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >ATENCIÓN AL CLIENTE</a
-          >
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >UBICACIÓN DE TIENDAS</a
-          >
-        </div>
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            LEGAL
-          </h4>
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >POLÍTICA DE PRIVACIDAD</a
-          >
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >TÉRMINOS DE SERVICIO</a
-          >
-        </div>
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            COMUNICACIONES
-          </h4>
-          <div class="flex mt-sm w-full max-w-xs">
-            <input
-              class="w-full bg-surface border border-outline-variant px-sm py-xs font-label-caps text-xs focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary h-10 rounded-none"
-              placeholder="INGRESA TU EMAIL"
-              type="email"
-            />
-            <button
-              class="bg-primary text-on-primary px-sm flex items-center justify-center border border-primary h-10 hover:bg-primary-container transition-colors"
-            >
-              <span class="material-symbols-outlined text-sm"
-                >arrow_forward</span
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-surface-lowest text-primary py-5 border-top border-outline-variant mt-auto">
+      <div class="container-lg">
+        <div class="row g-4 pb-4 border-bottom border-outline-variant">
+          <div class="col-md-3 d-flex flex-column gap-2">
+            <img src="img/fits%20two.png" alt="FITS" height="48" class="align-self-start" />
+            <p class="text-on-surface-variant small mb-0">
+              Diseñado para atletas de élite. Equipamiento de precisión para
+              rendimiento máximo.
+            </p>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">SOPORTE</h4>
+            <a class="footer-link mb-2" href="#">ATENCIÓN AL CLIENTE</a>
+            <a class="footer-link" href="#">UBICACIÓN DE TIENDAS</a>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">LEGAL</h4>
+            <a class="footer-link mb-2" href="#">POLÍTICA DE PRIVACIDAD</a>
+            <a class="footer-link" href="#">TÉRMINOS DE SERVICIO</a>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">COMUNICACIONES</h4>
+            <div class="input-group input-group-newsletter">
+              <input
+                type="email"
+                class="form-control label-caps"
+                placeholder="INGRESA TU EMAIL"
+                aria-label="Correo electrónico"
+              />
+              <button
+                type="button"
+                class="btn btn-primary"
+                aria-label="Suscribirse"
               >
-            </button>
+                <span class="material-symbols-outlined" style="font-size: 18px">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 pt-4"
+        >
+          <span class="label-caps text-on-surface-variant">
+            © <span id="year">2024</span> APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
+          </span>
+          <div class="d-flex gap-3 text-on-surface-variant">
+            <span class="material-symbols-outlined" style="font-size: 20px" role="button">language</span>
+            <span class="material-symbols-outlined" style="font-size: 20px" role="button">share</span>
           </div>
         </div>
       </div>
-      <div
-        class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto pt-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-sm"
-      >
-        <span class="font-label-caps text-xs text-on-surface-variant">
-          © 2024 APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
-        </span>
-        <div class="flex gap-md text-on-surface-variant">
-          <!-- Social placeholders -->
-          <span
-            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
-            >language</span
-          >
-          <span
-            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
-            >share</span
-          >
-        </div>
-      </div>
     </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

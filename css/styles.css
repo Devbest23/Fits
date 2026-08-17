@@ -1,59 +1,805 @@
-/* FITS - Custom Styles */
+/* FITS - Diseño basado en Bootstrap 5
+   Mantiene la paleta de colores original del proyecto. */
 
-/* Material Symbols */
+/* ============================================================
+   1. Paleta FITS (tokens de color)
+   ============================================================ */
+:root {
+  --fits-primary: #183678;
+  --fits-primary-container: #334e91;
+  --fits-on-primary: #ffffff;
+  --fits-on-primary-container: #afc2ff;
+  --fits-primary-fixed: #dae2ff;
+  --fits-primary-fixed-dim: #b2c5ff;
+  --fits-background: #faf8ff;
+  --fits-on-background: #1a1b20;
+  --fits-surface: #faf8ff;
+  --fits-on-surface: #1a1b20;
+  --fits-surface-dim: #dad9e0;
+  --fits-surface-container: #eeedf3;
+  --fits-surface-container-low: #f4f3f9;
+  --fits-surface-container-lowest: #ffffff;
+  --fits-surface-container-high: #e9e7ee;
+  --fits-surface-container-highest: #e3e2e8;
+  --fits-surface-variant: #e3e2e8;
+  --fits-on-surface-variant: #444650;
+  --fits-outline: #747782;
+  --fits-outline-variant: #c4c6d2;
+  --fits-error: #ba1a1a;
+  --fits-on-error: #ffffff;
+  --fits-secondary: #595a89;
+  --fits-on-secondary: #ffffff;
+  --fits-inverse-surface: #2f3035;
+
+  /* Mapeo de la paleta a las variables de Bootstrap */
+  --bs-primary: var(--fits-primary);
+  --bs-primary-rgb: 24, 54, 120;
+  --bs-secondary: var(--fits-secondary);
+  --bs-secondary-rgb: 89, 90, 137;
+  --bs-danger: var(--fits-error);
+  --bs-danger-rgb: 186, 26, 26;
+  --bs-body-bg: var(--fits-background);
+  --bs-body-color: var(--fits-on-background);
+  --bs-body-font-family: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --bs-border-color: var(--fits-outline-variant);
+  --bs-border-color-translucent: rgba(196, 198, 210, 0.5);
+  --bs-link-color: var(--fits-primary);
+  --bs-link-hover-color: var(--fits-primary-container);
+  --bs-link-color-rgb: 24, 54, 120;
+  --bs-link-hover-color-rgb: 51, 78, 145;
+  --bs-focus-ring-color: rgba(24, 54, 120, 0.25);
+  --bs-focus-ring-width: 0.15rem;
+  --bs-border-radius: 0.25rem;
+
+  /* Tokens de diseño FITS */
+  --fits-radius-sm: 0.25rem;
+  --fits-radius: 0.5rem;
+  --fits-radius-lg: 0.75rem;
+  --fits-shadow-soft: 0 2px 10px rgba(24, 54, 120, 0.05);
+  --fits-shadow-lift: 0 14px 34px -12px rgba(24, 54, 120, 0.22);
+  --fits-shadow-glow: 0 24px 60px -24px rgba(24, 54, 120, 0.35);
+}
+
+/* ============================================================
+   2. Tipografía
+   ============================================================ */
+body {
+  font-family: var(--bs-body-font-family);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fits-on-background);
+}
+
+.font-display,
+.font-headline {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.font-mono,
+.font-label {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.label-caps {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
 .material-symbols-outlined {
-  font-variation-settings:
-    "FILL" 0,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
-}
-.material-symbols-outlined.filled {
-  font-variation-settings:
-    "FILL" 1,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  line-height: 1;
 }
 
-/* Index Page */
-.hard-shadow {
-  box-shadow: 4px 4px 0px 0px rgba(24, 54, 120, 1);
+/* ============================================================
+   3. Utilidades de color FITS
+   ============================================================ */
+.bg-surface { background-color: var(--fits-surface) !important; }
+.bg-surface-dim { background-color: var(--fits-surface-dim) !important; }
+.bg-surface-container { background-color: var(--fits-surface-container) !important; }
+.bg-surface-low { background-color: var(--fits-surface-container-low) !important; }
+.bg-surface-lowest { background-color: var(--fits-surface-container-lowest) !important; }
+.bg-surface-high { background-color: var(--fits-surface-container-high) !important; }
+.bg-surface-highest { background-color: var(--fits-surface-container-highest) !important; }
+.bg-surface-variant { background-color: var(--fits-surface-variant) !important; }
+.bg-background { background-color: var(--fits-background) !important; }
+.bg-primary-container { background-color: var(--fits-primary-container) !important; }
+.bg-primary-fixed { background-color: var(--fits-primary-fixed) !important; }
+
+.text-on-surface { color: var(--fits-on-surface) !important; }
+.text-on-surface-variant { color: var(--fits-on-surface-variant) !important; }
+.text-on-background { color: var(--fits-on-background) !important; }
+.text-on-primary { color: var(--fits-on-primary) !important; }
+.text-on-error { color: var(--fits-on-error) !important; }
+.text-error { color: var(--fits-error) !important; }
+.text-outline { color: var(--fits-outline) !important; }
+.text-primary-container { color: var(--fits-primary-container) !important; }
+
+.border-outline-variant { border-color: var(--fits-outline-variant) !important; }
+.border-outline { border-color: var(--fits-outline) !important; }
+.border-primary-container { border-color: var(--fits-primary-container) !important; }
+.border-error { border-color: var(--fits-error) !important; }
+
+/* ============================================================
+   4. Botones
+   ============================================================ */
+.btn {
+  --bs-btn-border-radius: var(--fits-radius-sm);
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.04em;
 }
+
+.btn-primary {
+  --bs-btn-bg: var(--fits-primary);
+  --bs-btn-border-color: var(--fits-primary);
+  --bs-btn-hover-bg: var(--fits-primary-container);
+  --bs-btn-hover-border-color: var(--fits-primary-container);
+  --bs-btn-active-bg: var(--fits-primary-container);
+  --bs-btn-active-border-color: var(--fits-primary-container);
+  --bs-btn-disabled-bg: var(--fits-primary);
+  --bs-btn-disabled-border-color: var(--fits-primary);
+  --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--fits-primary);
+  --bs-btn-border-color: var(--fits-primary);
+  --bs-btn-hover-bg: var(--fits-primary);
+  --bs-btn-hover-border-color: var(--fits-primary);
+  --bs-btn-hover-color: var(--fits-on-primary);
+  --bs-btn-active-bg: var(--fits-primary-container);
+  --bs-btn-active-border-color: var(--fits-primary-container);
+  --bs-btn-active-color: var(--fits-on-primary);
+  --bs-btn-disabled-color: var(--fits-primary);
+  --bs-btn-disabled-border-color: var(--fits-primary);
+  --bs-btn-focus-shadow-rgb: var(--bs-primary-rgb);
+}
+
+.btn-danger {
+  --bs-btn-bg: var(--fits-error);
+  --bs-btn-border-color: var(--fits-error);
+  --bs-btn-hover-bg: #a31a1a;
+  --bs-btn-hover-border-color: #a31a1a;
+  --bs-btn-active-bg: #93000a;
+  --bs-btn-active-border-color: #93000a;
+  --bs-btn-disabled-bg: var(--fits-error);
+  --bs-btn-disabled-border-color: var(--fits-error);
+  --bs-btn-focus-shadow-rgb: var(--bs-danger-rgb);
+}
+
+.btn-outline-danger {
+  --bs-btn-color: var(--fits-error);
+  --bs-btn-border-color: var(--fits-error);
+  --bs-btn-hover-bg: var(--fits-error);
+  --bs-btn-hover-border-color: var(--fits-error);
+  --bs-btn-hover-color: var(--fits-on-error);
+  --bs-btn-active-bg: #93000a;
+  --bs-btn-active-border-color: #93000a;
+}
+
+/* Sombras técnicas */
+.hard-shadow { box-shadow: 4px 4px 0 0 var(--fits-primary); }
+
+.technical-shadow {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.technical-shadow:active {
+  box-shadow: 0 4px 0 0 var(--fits-primary);
+  transform: translateY(2px);
+}
+
+.technical-border {
+  border-color: rgba(17, 18, 62, 0.12) !important;
+}
+
+/* ============================================================
+   5. Navbar
+   ============================================================ */
+.navbar {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.bg-surface-glass {
+  background-color: rgba(250, 248, 255, 0.92) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
+}
+
+.navbar-brand {
+  padding: 0;
+  margin-right: 0;
+}
+.navbar-brand img {
+  height: 44px;
+  width: auto;
+  border-radius: var(--fits-radius-sm);
+  box-shadow: 0 2px 10px rgba(24, 54, 120, 0.12);
+}
+
+.navbar .nav-link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fits-on-surface);
+  padding: 0.5rem 0.35rem;
+  margin: 0 0.15rem;
+  transition: color 0.2s ease;
+}
+.navbar .nav-link:hover { color: var(--fits-primary); }
+.navbar .nav-link.active {
+  color: var(--fits-primary);
+  box-shadow: inset 0 -2px 0 var(--fits-primary);
+}
+
+.navbar-toggler {
+  border: 0;
+  box-shadow: none !important;
+}
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.nav-icon {
+  color: var(--fits-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.nav-icon:hover {
+  color: var(--fits-primary);
+  background-color: var(--fits-primary-fixed);
+  transform: translateY(-1px);
+}
+
+.navbar .material-symbols-outlined {
+  font-size: 26px;
+}
+
+@media (max-width: 767.98px) {
+  .navbar .nav-link {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--fits-outline-variant);
+  }
+  .navbar .nav-link.active {
+    box-shadow: none;
+    color: var(--fits-primary);
+  }
+}
+
+/* ============================================================
+   6. Hero
+   ============================================================ */
+.hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 640px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--fits-outline-variant);
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 248, 255, 0.96) 0%,
+    rgba(250, 248, 255, 0.72) 38%,
+    rgba(250, 248, 255, 0.15) 75%,
+    rgba(250, 248, 255, 0) 100%
+  );
+}
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 120px;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(250, 248, 255, 0.85), transparent);
+  pointer-events: none;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--fits-surface-variant);
+}
+.hero-bg > div {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.65;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 3.5rem 0;
+}
+@media (max-width: 767.98px) {
+  .hero-section {
+    min-height: 0;
+  }
+}
+
+.hero-title {
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
 .glass-panel {
-  background: rgba(250, 248, 255, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(196, 198, 210, 0.5);
+  box-shadow: var(--fits-shadow-glow);
 }
+
 .grid-bg {
   background-size: 24px 24px;
   background-image:
-    linear-gradient(
-      to right,
-      rgba(20, 21, 62, 0.05) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(20, 21, 62, 0.05) 1px,
-      transparent 1px
-    );
+    linear-gradient(to right, rgba(20, 21, 62, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 21, 62, 0.05) 1px, transparent 1px);
 }
 
-/* Products Page */
-body {
-  font-family: "Hanken Grotesk", sans-serif;
+/* ============================================================
+   7. Tarjetas destacadas (bento)
+   ============================================================ */
+.card {
+  border-radius: 0.125rem;
 }
-.font-headline,
-.font-display {
-  font-family: "Space Grotesk", sans-serif;
+
+.feature-card {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid var(--fits-outline-variant);
+  border-radius: var(--fits-radius);
+  background-color: var(--fits-surface);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--fits-shadow-soft);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
-.font-mono {
+.feature-card:hover {
+  border-color: rgba(24, 54, 120, 0.4);
+  box-shadow: var(--fits-shadow-lift);
+  transform: translateY(-4px);
+}
+
+.card-img-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.7s ease;
+}
+.card:hover .card-img-cover { transform: scale(1.05); }
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(250, 248, 255, 0.95) 0%,
+    rgba(250, 248, 255, 0.3) 50%,
+    rgba(250, 248, 255, 0) 100%
+  );
+}
+.card-body-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+/* Zoom suave de imágenes al pasar el cursor */
+.product-zoom {
+  transition: transform 0.5s ease;
+}
+.card:hover .product-zoom { transform: scale(1.05); }
+.recommend-card:hover .product-zoom { transform: scale(1.05); }
+.cart-item:hover .product-zoom { transform: scale(1.05); }
+
+/* ============================================================
+   8. Tarjetas de producto
+   ============================================================ */
+.product-card {
+  border: 1px solid var(--fits-outline-variant);
+  border-radius: var(--fits-radius);
+  overflow: hidden;
+  background-color: var(--fits-surface);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--fits-shadow-soft);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.product-card:hover {
+  border-color: rgba(24, 54, 120, 0.35);
+  box-shadow: var(--fits-shadow-lift);
+  transform: translateY(-5px);
+}
+.product-card .img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--fits-surface-container-low);
+}
+.product-card .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.product-card:hover .img-wrap img { transform: scale(1.06); }
+.product-card .card-body {
+  background-color: var(--fits-surface);
+}
+
+.product-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--fits-primary);
   font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid var(--fits-outline-variant);
+  border-radius: var(--fits-radius-sm);
+  box-shadow: 0 4px 12px rgba(24, 54, 120, 0.14);
+  backdrop-filter: blur(4px);
 }
-.technical-border {
-  border: 1px solid rgba(17, 18, 62, 0.1);
+.product-tag.sale { color: var(--fits-error); }
+
+/* ============================================================
+   9. Tarjetas de ofertas
+   ============================================================ */
+.offer-card {
+  position: relative;
+  border: 1px solid var(--fits-outline-variant);
+  border-radius: var(--fits-radius);
+  background-color: var(--fits-surface);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--fits-shadow-soft);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 }
-.technical-shadow:active {
-  box-shadow: 0px 4px 0px 0px #183678;
+.offer-card:hover {
+  border-color: rgba(24, 54, 120, 0.35);
+  box-shadow: var(--fits-shadow-lift);
+  transform: translateY(-4px);
+}
+.offer-card .offer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.offer-card:hover .offer-img { transform: scale(1.05); }
+.offer-card .offer-body {
+  background-color: var(--fits-surface);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(196, 198, 210, 0.35);
+}
+
+.sale-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  background-color: var(--fits-error);
+  color: var(--fits-on-error);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--fits-radius-sm);
+  box-shadow: 0 6px 16px rgba(186, 26, 26, 0.35);
+}
+
+/* ============================================================
+   10. Carrito
+   ============================================================ */
+.cart-item {
+  border-radius: var(--fits-radius);
+  box-shadow: var(--fits-shadow-soft);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.cart-item:hover {
+  border-color: var(--fits-primary);
+  box-shadow: 6px 6px 0 0 var(--fits-primary);
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--fits-outline-variant);
+  background: var(--fits-surface);
+  border-radius: 0.125rem;
+  overflow: hidden;
+}
+.qty-control button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--fits-on-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+.qty-control button:hover { background: var(--fits-surface-container-high); }
+.qty-control .qty-value {
+  width: 40px;
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--fits-on-surface);
+}
+
+.recommend-card {
+  border: 1px solid var(--fits-outline-variant);
+  border-radius: var(--fits-radius);
+  background-color: var(--fits-surface-container-lowest);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  overflow: hidden;
+  box-shadow: var(--fits-shadow-soft);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.recommend-card:hover {
+  border-color: var(--fits-primary);
+  box-shadow: 6px 6px 0 0 var(--fits-primary);
+  transform: translateY(-3px);
+}
+.add-badge {
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   transform: translateY(2px);
+}
+.recommend-card:hover .add-badge { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   11. Formularios
+   ============================================================ */
+.form-check-input {
+  border-radius: 0.125rem;
+  border-color: var(--fits-outline);
+  background-color: var(--fits-surface);
+  cursor: pointer;
+}
+.form-check-input:checked {
+  background-color: var(--fits-primary);
+  border-color: var(--fits-primary);
+}
+.form-check-input:focus {
+  border-color: var(--fits-primary);
+  box-shadow: 0 0 0 0.2rem rgba(24, 54, 120, 0.15);
+}
+.form-check-label { cursor: pointer; }
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--fits-primary);
+  box-shadow: 0 0 0 0.2rem rgba(24, 54, 120, 0.15);
+}
+.form-control,
+.form-select {
+  border-color: var(--fits-outline-variant);
+  border-radius: 0.125rem;
+  background-color: var(--fits-surface);
+}
+
+.form-range::-webkit-slider-thumb {
+  background-color: var(--fits-primary);
+}
+.form-range::-moz-range-thumb {
+  background-color: var(--fits-primary);
+}
+.form-range::-webkit-slider-runnable-track {
+  background-color: var(--fits-surface-variant);
+}
+.form-range::-moz-range-track {
+  background-color: var(--fits-surface-variant);
+}
+
+.size-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--fits-outline-variant);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  background: transparent;
+  color: var(--fits-on-surface);
+  transition: all 0.2s ease;
+}
+.size-btn:hover {
+  border-color: var(--fits-primary);
+  color: var(--fits-primary);
+  background-color: var(--fits-primary-fixed);
+}
+.size-btn.active {
+  background-color: var(--fits-primary);
+  border-color: var(--fits-primary);
+  color: var(--fits-on-primary);
+}
+
+.input-group-newsletter .form-control,
+.input-group-newsletter .btn {
+  border-radius: 0;
+}
+
+/* ============================================================
+   12. Acordeón (FAQ)
+   ============================================================ */
+.accordion {
+  --bs-accordion-border-color: var(--fits-outline-variant);
+  --bs-accordion-bg: transparent;
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-btn-color: var(--fits-primary);
+  --bs-accordion-btn-active-color: var(--fits-primary);
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-btn-focus-border-color: transparent;
+  --bs-accordion-body-padding-y: 0.75rem;
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23183678'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23183678'%3e%3cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 1rem 0;
+}
+.accordion-body {
+  color: var(--fits-on-surface-variant);
+  font-size: 0.875rem;
+}
+
+#faqAccordion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+}
+@media (max-width: 991.98px) {
+  #faqAccordion { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   13. Paginación
+   ============================================================ */
+.pagination .page-link {
+  color: var(--fits-on-surface);
+  border: 1px solid var(--fits-outline-variant);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  background-color: transparent;
+  min-width: 42px;
+  height: 42px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.pagination .page-link:hover {
+  background-color: var(--fits-primary-fixed);
+  color: var(--fits-primary);
+  border-color: var(--fits-primary);
+}
+.pagination .page-item.active .page-link {
+  background-color: var(--fits-primary);
+  border-color: var(--fits-primary);
+  color: var(--fits-on-primary);
+  box-shadow: 4px 4px 0 0 var(--fits-primary-fixed-dim);
+}
+.pagination .page-item .material-symbols-outlined {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ============================================================
+   14. Footer
+   ============================================================ */
+.footer-heading {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fits-primary);
+  border-bottom: 1px solid var(--fits-outline-variant);
+  padding-bottom: 6px;
+  width: fit-content;
+  margin-bottom: 1.1rem;
+}
+.footer-link {
+  color: var(--fits-on-surface-variant);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.footer-link:hover {
+  color: var(--fits-primary);
+}
+
+/* ============================================================
+   15. Mapa / varios
+   ============================================================ */
+.map-placeholder {
+  position: relative;
+  height: 400px;
+  background-color: var(--fits-surface-variant);
+  border: 1px solid var(--fits-outline-variant);
+  border-radius: var(--fits-radius);
+  overflow: hidden;
+}
+
+.position-sticky { position: sticky !important; }
+
+::selection {
+  background-color: var(--fits-primary);
+  color: var(--fits-on-primary);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Acento de marca en títulos de sección */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-heading::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--fits-primary);
+  box-shadow: 2px 2px 0 0 var(--fits-primary-fixed-dim);
+  flex-shrink: 0;
+}
+
+/* Enlaces del footer con pequeño desplazamiento al hover */
+.footer-link {
+  display: inline-block;
 }

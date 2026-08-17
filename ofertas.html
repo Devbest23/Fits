@@ -2,626 +2,344 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FITS - OFERTAS</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="js/main.js"></script>
-    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="img/fits%20two.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link href="css/styles.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body
-    class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col"
-  >
-    <!-- TopNavBar -->
+  <body class="bg-background text-on-background d-flex flex-column min-vh-100">
+    <!-- ===== NAVBAR ===== -->
     <nav
-      class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-300"
+      class="navbar navbar-expand-md sticky-top bg-surface-glass border-bottom border-outline-variant shadow-sm"
     >
-      <div
-        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20"
-      >
-        <!-- Brand -->
-        <a
-          class="font-display-lg-mobile md:text-[32px] text-primary font-extrabold tracking-tighter"
-          href="index.html"
-        >
-          FITS
+      <div class="container-lg">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="img/fits%20two.png" alt="FITS" height="46" />
         </a>
-        <!-- Nav Links (Desktop) -->
-        <div class="hidden md:flex gap-lg items-center">
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
-            href="index.html"
-            >INICIO</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
-            href="products.html"
-            >PRODUCTOS</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b-2 border-primary pb-1"
-            href="ofertas.html"
-            >OFERTAS</a
-          >
-        </div>
-        <!-- Actions -->
-        <div class="flex items-center gap-md text-primary">
-          <a
-            href="carrito.html"
-            aria-label="Shopping Cart"
-            class="hover:scale-105 active:scale-95 transition-transform duration-200"
-          >
+        <div class="d-flex align-items-center gap-3">
+          <a href="carrito.html" class="nav-icon" aria-label="Carrito de compras">
             <span class="material-symbols-outlined">shopping_cart</span>
           </a>
           <button
-            id="menu-toggle"
-            aria-label="Menu"
-            class="md:hidden hover:scale-105 active:scale-95 transition-transform duration-200"
+            class="navbar-toggler p-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+            aria-controls="navMenu"
+            aria-expanded="false"
+            aria-label="Abrir menú"
           >
-            <span class="material-symbols-outlined" id="menu-icon">menu</span>
+            <span class="material-symbols-outlined text-primary">menu</span>
           </button>
         </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden border-t border-outline-variant bg-surface/95 backdrop-blur-md"
-      >
-        <div class="flex flex-col px-margin-mobile py-lg gap-md">
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm border-b border-outline-variant"
-            href="index.html"
-            >INICIO</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm border-b border-outline-variant"
-            href="products.html"
-            >PRODUCTOS</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-primary py-sm"
-            href="ofertas.html"
-            >OFERTAS</a
-          >
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-md-auto align-items-md-center gap-lg-4 py-3 py-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="ofertas.html">Ofertas</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
-    <!-- Main Content -->
-    <main
-      class="flex-grow max-w-[1280px] w-full mx-auto px-margin-mobile md:px-margin-desktop py-xl md:py-2xl flex flex-col md:flex-row gap-gutter"
-    >
-      <!-- Sidebar Filter -->
-      <aside class="w-full md:w-64 flex-shrink-0 mb-xl md:mb-0 hidden md:block">
-        <div class="sticky top-32">
-          <h2
-            class="font-headline-sm text-headline-sm text-on-background mb-lg"
-          >
-            FILTERS
-          </h2>
-          <div class="space-y-lg">
-            <!-- Status Filter -->
-            <div class="border-b border-outline-variant/30 pb-md">
-              <h3
-                class="font-label-caps text-label-caps text-on-surface-variant mb-md tracking-widest"
-              >
-                ESTADO
-              </h3>
-              <div class="flex flex-col gap-sm">
-                <label class="flex items-center gap-sm cursor-pointer group">
-                  <input
-                    checked=""
-                    class="form-checkbox h-4 w-4 text-primary bg-surface border-outline rounded-none focus:ring-primary focus:ring-offset-background"
-                    type="checkbox"
-                  />
-                  <span
-                    class="font-body-sm text-body-md text-error font-semibold group-hover:text-error/80 transition-colors"
-                    >SALE</span
-                  >
-                </label>
-                <label class="flex items-center gap-sm cursor-pointer group">
-                  <input
-                    class="form-checkbox h-4 w-4 text-primary bg-surface border-outline rounded-none focus:ring-primary focus:ring-offset-background"
-                    type="checkbox"
-                  />
-                  <span
-                    class="font-body-sm text-body-md text-on-background group-hover:text-primary transition-colors"
-                    >NEW ARRIVALS</span
-                  >
-                </label>
+
+    <!-- ===== MAIN ===== -->
+    <main class="flex-grow-1 py-5">
+      <div class="container-lg">
+        <div class="row g-5">
+          <!-- Filtros -->
+          <aside class="col-lg-3 d-none d-lg-block">
+            <div class="position-sticky" style="top: 100px">
+              <h2 class="font-headline text-primary fw-bold mb-4">FILTERS</h2>
+
+              <div class="mb-4 pb-3 border-bottom border-outline-variant">
+                <h3 class="label-caps text-on-surface-variant mb-3">ESTADO</h3>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="estadoSale" checked />
+                  <label class="form-check-label text-error fw-semibold" for="estadoSale">
+                    SALE
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="estadoNew" />
+                  <label class="form-check-label text-on-background" for="estadoNew">
+                    NEW ARRIVALS
+                  </label>
+                </div>
+              </div>
+
+              <div class="mb-4 pb-3 border-bottom border-outline-variant">
+                <h3 class="label-caps text-on-surface-variant mb-3">CATEGORÍA</h3>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="catCalzado" />
+                  <label class="form-check-label text-on-background" for="catCalzado">
+                    CALZADO
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="catRopa" checked />
+                  <label class="form-check-label text-on-background" for="catRopa">
+                    ROPA
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="catAcc" />
+                  <label class="form-check-label text-on-background" for="catAcc">
+                    ACCESORIOS
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="label-caps text-on-surface-variant mb-3">TALLA</h3>
+                <div class="row row-cols-3 g-2">
+                  <div class="col"><button type="button" class="size-btn w-100">S</button></div>
+                  <div class="col"><button type="button" class="size-btn active w-100">M</button></div>
+                  <div class="col"><button type="button" class="size-btn w-100">L</button></div>
+                  <div class="col"><button type="button" class="size-btn w-100">XL</button></div>
+                  <div class="col"><button type="button" class="size-btn w-100">XXL</button></div>
+                </div>
               </div>
             </div>
-            <!-- Category Filter -->
-            <div class="border-b border-outline-variant/30 pb-md">
-              <h3
-                class="font-label-caps text-label-caps text-on-surface-variant mb-md tracking-widest"
-              >
-                CATEGORÍA
-              </h3>
-              <div class="flex flex-col gap-sm">
-                <label class="flex items-center gap-sm cursor-pointer group">
-                  <input
-                    class="form-checkbox h-4 w-4 text-primary bg-surface border-outline rounded-none focus:ring-primary focus:ring-offset-background"
-                    type="checkbox"
-                  />
-                  <span
-                    class="font-body-sm text-body-md text-on-background group-hover:text-primary transition-colors"
-                    >CALZADO</span
-                  >
-                </label>
-                <label class="flex items-center gap-sm cursor-pointer group">
-                  <input
-                    checked=""
-                    class="form-checkbox h-4 w-4 text-primary bg-surface border-outline rounded-none focus:ring-primary focus:ring-offset-background"
-                    type="checkbox"
-                  />
-                  <span
-                    class="font-body-sm text-body-md text-on-background group-hover:text-primary transition-colors"
-                    >ROPA</span
-                  >
-                </label>
-                <label class="flex items-center gap-sm cursor-pointer group">
-                  <input
-                    class="form-checkbox h-4 w-4 text-primary bg-surface border-outline rounded-none focus:ring-primary focus:ring-offset-background"
-                    type="checkbox"
-                  />
-                  <span
-                    class="font-body-sm text-body-md text-on-background group-hover:text-primary transition-colors"
-                    >ACCESORIOS</span
-                  >
-                </label>
-              </div>
-            </div>
-            <!-- Size Filter -->
-            <div>
-              <h3
-                class="font-label-caps text-label-caps text-on-surface-variant mb-md tracking-widest"
-              >
-                TALLA
-              </h3>
-              <div class="grid grid-cols-3 gap-sm">
-                <button
-                  class="border border-outline-variant py-xs text-center font-label-caps text-label-caps hover:border-primary hover:text-primary transition-colors"
-                >
-                  S
-                </button>
-                <button
-                  class="border border-primary bg-primary/5 py-xs text-center font-label-caps text-label-caps text-primary transition-colors"
-                >
-                  M
-                </button>
-                <button
-                  class="border border-outline-variant py-xs text-center font-label-caps text-label-caps hover:border-primary hover:text-primary transition-colors"
-                >
-                  L
-                </button>
-                <button
-                  class="border border-outline-variant py-xs text-center font-label-caps text-label-caps hover:border-primary hover:text-primary transition-colors"
-                >
-                  XL
-                </button>
-                <button
-                  class="border border-outline-variant py-xs text-center font-label-caps text-label-caps hover:border-primary hover:text-primary transition-colors"
-                >
-                  XXL
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
-      <!-- Product Grid -->
-      <div class="flex-grow">
-        <!-- Header & Sort -->
-        <div
-          class="flex justify-between items-end mb-lg border-b border-outline-variant/30 pb-md"
-        >
-          <div>
-            <h1
-              class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background"
-            >
-              OFERTAS
-            </h1>
-            <p class="font-body-md text-body-md text-on-surface-variant mt-sm">
-              24 ARTÍCULOS ENCONTRADOS
-            </p>
-          </div>
-          <div class="hidden sm:flex items-center gap-md">
-            <span
-              class="font-label-caps text-label-caps text-on-surface-variant tracking-widest"
-              >ORDENAR POR</span
-            >
-            <select
-              class="bg-surface border border-outline-variant rounded-none font-body-sm text-body-md text-on-background py-xs pl-sm pr-lg focus:ring-primary focus:border-primary"
-            >
-              <option>DESCUENTO: MAYOR A MENOR</option>
-              <option>PRECIO: MENOR A MAYOR</option>
-              <option>PRECIO: MAYOR A MENOR</option>
-            </select>
-          </div>
-        </div>
-        <!-- Mobile Filter Toggle (Visible only on mobile) -->
-        <div
-          class="md:hidden flex justify-between items-center mb-lg border border-outline-variant p-sm"
-        >
-          <button
-            class="flex items-center gap-xs font-label-caps text-label-caps tracking-widest text-on-background"
-          >
-            <span class="material-symbols-outlined text-[18px]">tune</span>
-            FILTROS
-          </button>
-          <div class="flex items-center gap-xs">
-            <span
-              class="font-label-caps text-label-caps text-error font-semibold"
-              >OFERTAS ACTIVAS</span
-            >
-          </div>
-        </div>
-        <!-- Bento/Asymmetric Product Grid -->
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter auto-rows-[minmax(350px,auto)]"
-        >
-          <!-- Product Card 1 (Large/Featured) -->
-          <article
-            class="col-span-1 sm:col-span-2 lg:col-span-2 row-span-2 group relative border border-[#11123E]/10 bg-surface flex flex-col justify-between overflow-hidden cursor-pointer hover:border-primary/30 transition-colors duration-300"
-          >
-            <div class="absolute top-md left-md z-10">
-              <div
-                class="bg-error text-on-error font-label-caps text-label-caps px-sm py-xs tracking-widest border border-error/50 shadow-[4px_4px_0px_0px_rgba(186,26,26,0.3)]"
-              >
-                -40% SALE
-              </div>
-            </div>
+          </aside>
+
+          <!-- Ofertas -->
+          <div class="col-lg-9">
             <div
-              class="absolute top-md right-md z-10 opacity-0 group-hover:opacity-100 transition-opacity"
+              class="d-flex flex-wrap justify-content-between align-items-end border-bottom border-outline-variant pb-3 mb-4"
             >
-              <button
-                class="bg-surface p-sm border border-outline-variant hover:border-primary hover:text-primary transition-colors shadow-[2px_2px_0px_0px_rgba(24,54,120,1)]"
-              >
-                <span class="material-symbols-outlined">favorite</span>
+              <div>
+                <h1 class="font-headline text-on-background fw-bold mb-1 section-heading">OFERTAS</h1>
+                <p class="text-on-surface-variant mb-0">24 ARTÍCULOS ENCONTRADOS</p>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <span class="label-caps text-on-surface-variant">ORDENAR POR</span>
+                <select class="form-select" aria-label="Ordenar ofertas" style="width: auto">
+                  <option>DESCUENTO: MAYOR A MENOR</option>
+                  <option>PRECIO: MENOR A MAYOR</option>
+                  <option>PRECIO: MAYOR A MENOR</option>
+                </select>
+              </div>
+            </div>
+
+            <div
+              class="d-flex justify-content-between align-items-center border border-outline-variant p-2 mb-4 d-lg-none"
+            >
+              <button type="button" class="btn btn-link text-decoration-none label-caps text-on-background d-flex align-items-center gap-2 p-0">
+                <span class="material-symbols-outlined" style="font-size: 18px">tune</span>
+                FILTROS
               </button>
+              <span class="label-caps text-error fw-semibold">OFERTAS ACTIVAS</span>
             </div>
-            <div
-              class="relative w-full h-[60%] sm:h-[70%] bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-                data-alt="A high-contrast, dramatic studio shot of a sleek, black athletic running jacket with reflective silver technical details. The lighting is harsh and directional, emphasizing the fabric's texture and waterproof zippers. Set against a clean, light-mode background with technical grid lines subtly visible. Premium, engineered athletic aesthetic."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxDkBS8ExJYbmfaxfUgDAE3i-rwD9gv_C6oqivSicwmP0JQQhSBG74o76aLXVGan-2ccuSTIqJJZOIRgcWgZi3tIDWLoYREmzR6xzAcF_-jyF3v1NfJEhqFknfSHaPPrDr1HsBjJR3c2Geu7ewb4eghKM-4uSWqcKOdhbhfnNHmD7x_96oPjcEEQ3fgVH7mJ2XybFjbo5XpF_XacIZlHnPnYi-gSvBqNvXjRiBhYKMjVeQ5AaCKyhd2A"
-              />
-            </div>
-            <div
-              class="p-lg bg-surface flex flex-col justify-end border-t border-outline-variant/10"
-            >
-              <div class="flex justify-between items-start mb-sm">
-                <div>
-                  <h3
-                    class="font-headline-sm text-headline-sm text-on-background group-hover:text-primary transition-colors"
-                  >
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+              <!-- Oferta destacada -->
+              <article class="col-lg-8 offer-card">
+                <span class="sale-badge">-40% SALE</span>
+                <div class="overflow-hidden" style="height: 420px">
+                  <img
+                    class="offer-img"
+                    src="img/offer-jacket.jpg"
+                    alt="AERO-KNIT JACKET PRO"
+                  />
+                </div>
+                <div class="offer-body">
+                  <h3 class="font-headline text-on-background fw-semibold mb-0">
                     AERO-KNIT JACKET PRO
                   </h3>
-                  <p
-                    class="font-label-caps text-label-caps text-on-surface-variant tracking-widest mt-xs"
-                  >
-                    MENS OUTERWEAR
-                  </p>
+                  <p class="label-caps text-on-surface-variant mt-1 mb-0">MENS OUTERWEAR</p>
+                  <div class="d-flex align-items-center gap-3 mt-3">
+                    <span class="font-headline text-error fw-bold">$149.99</span>
+                    <span class="text-outline text-decoration-line-through">$249.99</span>
+                  </div>
                 </div>
-              </div>
-              <div class="flex items-center gap-md mt-sm">
-                <span class="font-headline-md text-headline-md text-error"
-                  >$149.99</span
-                >
-                <span
-                  class="font-body-lg text-body-lg text-outline-variant line-through"
-                  >$249.99</span
-                >
-              </div>
-            </div>
-          </article>
-          <!-- Product Card 2 -->
-          <article
-            class="group relative border border-[#11123E]/10 bg-surface flex flex-col justify-between overflow-hidden cursor-pointer hover:border-primary/30 transition-colors duration-300"
-          >
-            <div class="absolute top-sm left-sm z-10">
-              <div
-                class="bg-error text-on-error font-label-caps text-label-caps px-sm py-xs tracking-widest shadow-[2px_2px_0px_0px_rgba(186,26,26,0.3)]"
-              >
-                -25%
-              </div>
-            </div>
-            <div
-              class="relative w-full h-[250px] bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-                data-alt="Close-up product shot of professional running shoes in a striking white and navy blue colorway. The focus is on the engineered mesh upper and heavily textured, thick foam midsole designed for impact absorption. Clean, bright studio lighting against a minimal, off-white background highlighting the technical construction."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJxjGc0CaSYj_yMLiL6YAgJaQR3j2NE0tKyH5PahOP5zWYlv760ECQbfSFwSir07TUC79SA_3TBi20QS1SNtRHxGqEBNQv4unb-XLuEYmI12fCsKceUAMdF5_YG6d5A467nV1sfX3GLWoH2629R_5KfcVmne9mPdXNr67lpDvUW2QGPRyTuRx6doYD-fBVFAhqpXCD43h2qoekMWoMopemh-0Ihs2nZvz21Dh6Yms9lWhKm5KwhTfZPQ"
-              />
-            </div>
-            <div
-              class="p-md bg-surface flex flex-col justify-between flex-grow border-t border-outline-variant/10"
-            >
-              <div>
-                <h3
-                  class="font-body-lg text-body-lg text-on-background font-semibold group-hover:text-primary transition-colors leading-tight"
-                >
-                  VELOCITY ELITE FLYTE
-                </h3>
-                <p
-                  class="font-label-caps text-label-caps text-on-surface-variant tracking-widest mt-xs text-[10px]"
-                >
-                  UNISEX FOOTWEAR
-                </p>
-              </div>
-              <div class="flex items-center gap-sm mt-md">
-                <span class="font-headline-sm text-headline-sm text-error"
-                  >$180.00</span
-                >
-                <span
-                  class="font-body-md text-body-md text-outline-variant line-through"
-                  >$240.00</span
-                >
-              </div>
-            </div>
-          </article>
-          <!-- Product Card 3 -->
-          <article
-            class="group relative border border-[#11123E]/10 bg-surface flex flex-col justify-between overflow-hidden cursor-pointer hover:border-primary/30 transition-colors duration-300"
-          >
-            <div class="absolute top-sm left-sm z-10">
-              <div
-                class="bg-error text-on-error font-label-caps text-label-caps px-sm py-xs tracking-widest shadow-[2px_2px_0px_0px_rgba(186,26,26,0.3)]"
-              >
-                -50% FINAL
-              </div>
-            </div>
-            <div
-              class="relative w-full h-[250px] bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-                data-alt="A meticulously folded pair of dark grey technical compression tights featuring bright blue contrasting geometric seams mapping muscle groups. Photographed directly from above on a sterile, clinical white surface. Bright, even lighting emphasizing the matte texture of the performance fabric."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHQWKUp3JrP7HzbB_TvOp_4ACHGdsOudqQcv4wDJdNio6_C4FsYrouTdhkqxnLdtrEm5YlpCPa-tji6qOESqLtEYN3fNkCW4F3-XUnUSpwtAHCBND9dPL9QjODFzK4uGeYrijSAwZfGCw-oTVJSrqnDIr4Qch_aTo15LyJ-iFu5_hYYJYf5Cp0_lrq12r2RdM4xNBOtJNyzicr4OYFyJ6hhJF-L_US13tMkagf2t81HiDZSKtvHobzuQ"
-              />
-            </div>
-            <div
-              class="p-md bg-surface flex flex-col justify-between flex-grow border-t border-outline-variant/10"
-            >
-              <div>
-                <h3
-                  class="font-body-lg text-body-lg text-on-background font-semibold group-hover:text-primary transition-colors leading-tight"
-                >
-                  CORE COMPRESSION TIGHT
-                </h3>
-                <p
-                  class="font-label-caps text-label-caps text-on-surface-variant tracking-widest mt-xs text-[10px]"
-                >
-                  MENS BASELAYER
-                </p>
-              </div>
-              <div class="flex items-center gap-sm mt-md">
-                <span class="font-headline-sm text-headline-sm text-error"
-                  >$45.00</span
-                >
-                <span
-                  class="font-body-md text-body-md text-outline-variant line-through"
-                  >$90.00</span
-                >
-              </div>
-            </div>
-          </article>
-          <!-- Product Card 4 -->
-          <article
-            class="group relative border border-[#11123E]/10 bg-surface flex flex-col justify-between overflow-hidden cursor-pointer hover:border-primary/30 transition-colors duration-300"
-          >
-            <div class="absolute top-sm left-sm z-10">
-              <div
-                class="bg-error text-on-error font-label-caps text-label-caps px-sm py-xs tracking-widest shadow-[2px_2px_0px_0px_rgba(186,26,26,0.3)]"
-              >
-                -15%
-              </div>
-            </div>
-            <div
-              class="relative w-full h-[250px] bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-                data-alt="A minimalist, highly structured athletic backpack in matte navy blue with rigid panels and technical webbing. Shot in profile against a stark white backdrop to highlight its aerodynamic shape and water-resistant materials. The lighting is cool and slightly diffused, giving it a premium, tactical aesthetic."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxMbWp12rt8wiJNPdU204ZTQCn94XbbslUedkrjUqwIO5SjqRSNf9sSdx2YXRaW7QmjY3IXSca3_67REwUCXeqKJ6TT-AhIJEJ6w91AkNg30tlkWDm05yQn1_0u5aG1J4kdzgdoEIynjBRImcpcilkHm1Unxuq4162meVFk3xHhhldhbid6-eSpNQwsytDMW4KW9PZmC3H484asCrSCT2bqi7bl8T-1WWx6uL0pW35hqlkwHoZAP0dLA"
-              />
-            </div>
-            <div
-              class="p-md bg-surface flex flex-col justify-between flex-grow border-t border-outline-variant/10"
-            >
-              <div>
-                <h3
-                  class="font-body-lg text-body-lg text-on-background font-semibold group-hover:text-primary transition-colors leading-tight"
-                >
-                  TACTICAL TRANSIT PACK 24L
-                </h3>
-                <p
-                  class="font-label-caps text-label-caps text-on-surface-variant tracking-widest mt-xs text-[10px]"
-                >
-                  ACCESSORIES
-                </p>
-              </div>
-              <div class="flex items-center gap-sm mt-md">
-                <span class="font-headline-sm text-headline-sm text-error"
-                  >$110.50</span
-                >
-                <span
-                  class="font-body-md text-body-md text-outline-variant line-through"
-                  >$130.00</span
-                >
-              </div>
-            </div>
-          </article>
-          <!-- Product Card 5 (Wide) -->
-          <article
-            class="col-span-1 sm:col-span-2 lg:col-span-2 group relative border border-[#11123E]/10 bg-surface flex flex-col sm:flex-row overflow-hidden cursor-pointer hover:border-primary/30 transition-colors duration-300"
-          >
-            <div class="absolute top-sm left-sm z-10">
-              <div
-                class="bg-error text-on-error font-label-caps text-label-caps px-sm py-xs tracking-widest shadow-[2px_2px_0px_0px_rgba(186,26,26,0.3)]"
-              >
-                BUNDLE DEAL
-              </div>
-            </div>
-            <div
-              class="relative w-full sm:w-[40%] h-[250px] sm:h-full bg-surface-container-low overflow-hidden shrink-0"
-            >
-              <img
-                class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
-                data-alt="A curated flat lay of technical athletic gear: a navy blue moisture-wicking t-shirt, sleek black running shorts, and a silver biometric smartwatch. Arranged with perfect mathematical precision on a bright, minimalist white grid surface. The lighting is crisp, evoking a professional locker room or training lab."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjqiZuwRI7Yh8wgiP5udti7sMTB4uxtatp2WJpTOhHa81CPby5toW4sUR36mYhq4KfJTe4Sw5HIXY1qYUYAXL9bS83KUdinkxyUv6b5bTJJp9HPtEdlPeBvx3Xh3Ai4rEoa1Q0BXFQZI7JthiJYoVLcrrI2bLGmfv3AkDXPLR_6WjLC5wwS-Q46qW4PJQgDX5Q7UZUcRqkTMYoTW4aU7Y7NOlry_AWNji04yqc4g5KgNskNV7sUHGTyg"
-              />
-            </div>
-            <div
-              class="p-lg bg-surface flex flex-col justify-center flex-grow border-l sm:border-t-0 border-t border-outline-variant/10"
-            >
-              <div>
-                <h3
-                  class="font-headline-sm text-headline-sm text-on-background group-hover:text-primary transition-colors"
-                >
-                  ELITE TRAINING KIT
-                </h3>
-                <p
-                  class="font-body-md text-body-md text-on-surface-variant mt-sm"
-                >
-                  Complete high-performance setup. Includes ISO-Cool Tee, Vento
-                  Shorts, and Performance Socks.
-                </p>
-              </div>
-              <div
-                class="flex items-center justify-between mt-lg border-t border-outline-variant/20 pt-md"
-              >
-                <div class="flex items-center gap-md">
-                  <span class="font-headline-md text-headline-md text-error"
-                    >$120.00</span
-                  >
-                  <span
-                    class="font-body-lg text-body-lg text-outline-variant line-through"
-                    >$175.00</span
-                  >
+              </article>
+
+              <!-- Oferta 2 -->
+              <article class="col-md-6 col-lg-4 offer-card">
+                <span class="sale-badge">-25%</span>
+                <div class="overflow-hidden" style="height: 250px">
+                  <img
+                    class="offer-img"
+                    src="img/offer-velocity.jpg"
+                    alt="VELOCITY ELITE FLYTE"
+                  />
                 </div>
-                <button
-                  class="bg-primary text-on-primary font-label-caps text-label-caps px-lg py-sm flex items-center gap-xs hover:bg-primary/90 transition-colors shadow-[4px_4px_0px_0px_rgba(178,197,255,0.5)] active:shadow-none active:translate-y-[4px] active:translate-x-[4px]"
-                >
-                  ADD KIT
-                </button>
-              </div>
+                <div class="offer-body">
+                  <h3 class="font-headline text-on-background fw-semibold mb-0" style="font-size: 18px">
+                    VELOCITY ELITE FLYTE
+                  </h3>
+                  <p class="label-caps text-on-surface-variant mt-1 mb-0">UNISEX FOOTWEAR</p>
+                  <div class="d-flex align-items-center gap-3 mt-3">
+                    <span class="font-headline text-error fw-bold">$180.00</span>
+                    <span class="text-outline text-decoration-line-through">$240.00</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Oferta 3 -->
+              <article class="col-md-6 col-lg-4 offer-card">
+                <span class="sale-badge">-50% FINAL</span>
+                <div class="overflow-hidden" style="height: 250px">
+                  <img
+                    class="offer-img"
+                    src="img/offer-tight.jpg"
+                    alt="CORE COMPRESSION TIGHT"
+                  />
+                </div>
+                <div class="offer-body">
+                  <h3 class="font-headline text-on-background fw-semibold mb-0" style="font-size: 18px">
+                    CORE COMPRESSION TIGHT
+                  </h3>
+                  <p class="label-caps text-on-surface-variant mt-1 mb-0">MENS BASELAYER</p>
+                  <div class="d-flex align-items-center gap-3 mt-3">
+                    <span class="font-headline text-error fw-bold">$45.00</span>
+                    <span class="text-outline text-decoration-line-through">$90.00</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Oferta 4 -->
+              <article class="col-md-6 col-lg-4 offer-card">
+                <span class="sale-badge">-15%</span>
+                <div class="overflow-hidden" style="height: 250px">
+                  <img
+                    class="offer-img"
+                    src="img/offer-pack.jpg"
+                    alt="TACTICAL TRANSIT PACK 24L"
+                  />
+                </div>
+                <div class="offer-body">
+                  <h3 class="font-headline text-on-background fw-semibold mb-0" style="font-size: 18px">
+                    TACTICAL TRANSIT PACK 24L
+                  </h3>
+                  <p class="label-caps text-on-surface-variant mt-1 mb-0">ACCESSORIES</p>
+                  <div class="d-flex align-items-center gap-3 mt-3">
+                    <span class="font-headline text-error fw-bold">$110.50</span>
+                    <span class="text-outline text-decoration-line-through">$130.00</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Oferta 5 (ancha) -->
+              <article class="col-lg-8 offer-card">
+                <span class="sale-badge">BUNDLE DEAL</span>
+                <div class="row g-0 flex-grow-1">
+                  <div class="col-12 col-sm-4 overflow-hidden" style="height: 250px">
+                    <img
+                      class="offer-img"
+                      src="img/offer-kit.jpg"
+                      alt="ELITE TRAINING KIT"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-8 offer-body justify-content-center">
+                    <h3 class="font-headline text-on-background fw-semibold mb-0">
+                      ELITE TRAINING KIT
+                    </h3>
+                    <p class="text-on-surface-variant mt-2 mb-0">
+                      Complete high-performance setup. Includes ISO-Cool Tee, Vento
+                      Shorts, and Performance Socks.
+                    </p>
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 border-top border-outline-variant pt-3 mt-3">
+                      <div class="d-flex align-items-center gap-3">
+                        <span class="font-headline text-error fw-bold">$120.00</span>
+                        <span class="text-outline text-decoration-line-through">$175.00</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-primary label-caps d-inline-flex align-items-center gap-2"
+                        style="box-shadow: 4px 4px 0 rgba(178, 197, 255, 0.5)"
+                      >
+                        ADD KIT
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
             </div>
-          </article>
-        </div>
-        <!-- Load More -->
-        <div class="mt-2xl flex justify-center">
-          <button
-            class="border-2 border-primary text-primary font-label-caps text-label-caps px-xl py-md hover:bg-primary hover:text-on-primary transition-colors duration-300"
-          >
-            CARGAR MÁS
-          </button>
+
+            <!-- Cargar más -->
+            <div class="text-center mt-5">
+              <button
+                type="button"
+                class="btn btn-outline-primary label-caps px-5 py-3"
+              >
+                CARGAR MÁS
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
-    <!-- Footer -->
-    <footer
-      class="bg-surface-container-lowest text-primary py-stack-lg border-t border-outline-variant mt-2xl"
-    >
-      <div
-        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto py-xl"
-      >
-        <!-- Brand Column -->
-        <div class="col-span-1 md:col-span-1 flex flex-col gap-md">
-          <span
-            class="font-display-lg-mobile md:font-display-lg font-black text-primary tracking-tighter"
-            >FITS</span
-          >
-          <p class="font-body-sm text-sm text-on-surface-variant">
-            Diseñado para atletas de élite. Equipamiento de precisión para
-            rendimiento máximo.
-          </p>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-surface-lowest text-primary py-5 border-top border-outline-variant mt-auto">
+      <div class="container-lg">
+        <div class="row g-4 pb-4 border-bottom border-outline-variant">
+          <div class="col-md-3 d-flex flex-column gap-2">
+            <img src="img/fits%20two.png" alt="FITS" height="48" class="align-self-start" />
+            <p class="text-on-surface-variant small mb-0">
+              Diseñado para atletas de élite. Equipamiento de precisión para
+              rendimiento máximo.
+            </p>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">SOPORTE</h4>
+            <a class="footer-link mb-2" href="#">ATENCIÓN AL CLIENTE</a>
+            <a class="footer-link" href="#">UBICACIÓN DE TIENDAS</a>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">LEGAL</h4>
+            <a class="footer-link mb-2" href="#">POLÍTICA DE PRIVACIDAD</a>
+            <a class="footer-link" href="#">TÉRMINOS DE SERVICIO</a>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">COMUNICACIONES</h4>
+            <div class="input-group input-group-newsletter">
+              <input
+                type="email"
+                class="form-control label-caps"
+                placeholder="INGRESA TU EMAIL"
+                aria-label="Correo electrónico"
+              />
+              <button type="button" class="btn btn-primary" aria-label="Suscribirse">
+                <span class="material-symbols-outlined" style="font-size: 18px">arrow_forward</span>
+              </button>
+            </div>
+          </div>
         </div>
-        <!-- Links Columns -->
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            SOPORTE
-          </h4>
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >ATENCIÓN AL CLIENTE</a
-          >
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >UBICACIÓN DE TIENDAS</a
-          >
-        </div>
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            LEGAL
-          </h4>
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >POLÍTICA DE PRIVACIDAD</a
-          >
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >TÉRMINOS DE SERVICIO</a
-          >
-        </div>
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            COMUNICACIONES
-          </h4>
-          <div class="flex mt-sm w-full max-w-xs">
-            <input
-              class="w-full bg-surface border border-outline-variant px-sm py-xs font-label-caps text-xs focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary h-10 rounded-none"
-              placeholder="INGRESA TU EMAIL"
-              type="email"
-            />
-            <button
-              class="bg-primary text-on-primary px-sm flex items-center justify-center border border-primary h-10 hover:bg-primary-container transition-colors"
-            >
-              <span class="material-symbols-outlined text-sm"
-                >arrow_forward</span
-              >
-            </button>
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 pt-4"
+        >
+          <span class="label-caps text-on-surface-variant">
+            © <span id="year">2024</span> APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
+          </span>
+          <div class="d-flex gap-3 text-on-surface-variant">
+            <span class="material-symbols-outlined" style="font-size: 20px" role="button">language</span>
+            <span class="material-symbols-outlined" style="font-size: 20px" role="button">share</span>
           </div>
         </div>
       </div>
-      <div
-        class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto pt-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-sm"
-      >
-        <span class="font-label-caps text-xs text-on-surface-variant">
-          © 2024 APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
-        </span>
-        <div class="flex gap-md text-on-surface-variant">
-          <!-- Social placeholders -->
-          <span
-            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
-            >language</span
-          >
-          <span
-            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
-            >share</span
-          >
-        </div>
-      </div>
     </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

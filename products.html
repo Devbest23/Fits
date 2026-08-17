@@ -2,632 +2,409 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Productos FITS</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="js/main.js"></script>
-    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="img/fits%20two.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link href="css/styles.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-background text-on-background min-h-screen flex flex-col">
-    <!-- TopNavBar -->
+  <body class="bg-background text-on-background d-flex flex-column min-vh-100">
+    <!-- ===== NAVBAR ===== -->
     <nav
-      class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-300"
+      class="navbar navbar-expand-md sticky-top bg-surface-glass border-bottom border-outline-variant shadow-sm"
     >
-      <div
-        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto h-20"
-      >
-        <!-- Brand -->
-        <a
-          class="font-display-lg-mobile md:text-[32px] text-primary font-extrabold tracking-tighter"
-          href="index.html"
-        >
-          FITS
+      <div class="container-lg">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="img/fits%20two.png" alt="FITS" height="46" />
         </a>
-        <!-- Nav Links (Desktop) -->
-        <div class="hidden md:flex gap-lg items-center">
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
-            href="index.html"
-            >INICIO</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b-2 border-primary pb-1"
-            href="products.html"
-            >PRODUCTOS</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors"
-            href="ofertas.html"
-            >OFERTAS</a
-          >
-        </div>
-        <!-- Actions -->
-        <div class="flex items-center gap-md text-primary">
-          <a
-            href="carrito.html"
-            aria-label="Shopping Cart"
-            class="hover:scale-105 active:scale-95 transition-transform duration-200"
-          >
+        <div class="d-flex align-items-center gap-3">
+          <a href="carrito.html" class="nav-icon" aria-label="Carrito de compras">
             <span class="material-symbols-outlined">shopping_cart</span>
           </a>
           <button
-            id="menu-toggle"
-            aria-label="Menu"
-            class="md:hidden hover:scale-105 active:scale-95 transition-transform duration-200"
+            class="navbar-toggler p-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+            aria-controls="navMenu"
+            aria-expanded="false"
+            aria-label="Abrir menú"
           >
-            <span class="material-symbols-outlined" id="menu-icon">menu</span>
+            <span class="material-symbols-outlined text-primary">menu</span>
           </button>
         </div>
-      </div>
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden border-t border-outline-variant bg-surface/95 backdrop-blur-md"
-      >
-        <div class="flex flex-col px-margin-mobile py-lg gap-md">
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm border-b border-outline-variant"
-            href="index.html"
-            >INICIO</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-primary py-sm border-b border-outline-variant"
-            href="products.html"
-            >PRODUCTOS</a
-          >
-          <a
-            class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface hover:text-primary transition-colors py-sm"
-            href="ofertas.html"
-            >OFERTAS</a
-          >
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-md-auto align-items-md-center gap-lg-4 py-3 py-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="products.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ofertas.html">Ofertas</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
-    <!-- Main Content -->
-    <main
-      class="flex-grow px-margin-desktop py-2xl max-w-[1280px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-gutter"
-    >
-      <!-- Sidebar Filters -->
-      <aside class="md:col-span-3 space-y-xl">
-        <div>
-          <h2
-            class="font-headline-sm text-headline-sm text-primary mb-md pb-sm border-b technical-border"
-          >
-            FILTERS
-          </h2>
-          <div class="space-y-lg">
-            <!-- Category -->
-            <div>
-              <h3
-                class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-sm"
-              >
-                CATEGORÍA
-              </h3>
-              <div class="space-y-sm">
-                <label
-                  class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-sm rounded transition-colors"
-                >
-                  <input
-                    class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary focus:ring-offset-0"
-                    type="checkbox"
-                  />
-                  <span class="font-body-md text-body-md text-on-surface"
-                    >Ropa de Entrenamiento</span
-                  >
+
+    <!-- ===== MAIN ===== -->
+    <main class="flex-grow-1 py-5">
+      <div class="container-lg">
+        <div class="row g-5">
+          <!-- Filtros -->
+          <aside class="col-lg-3">
+            <h2
+              class="font-headline text-primary fw-bold pb-2 mb-4 border-bottom technical-border"
+            >
+              FILTERS
+            </h2>
+            <div class="mb-4">
+              <h3 class="label-caps text-on-surface-variant mb-3">CATEGORÍA</h3>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="catRopa" />
+                <label class="form-check-label text-on-surface" for="catRopa">
+                  Ropa de Entrenamiento
                 </label>
-                <label
-                  class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-sm rounded transition-colors"
-                >
-                  <input
-                    checked=""
-                    class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary focus:ring-offset-0"
-                    type="checkbox"
-                  />
-                  <span class="font-body-md text-body-md text-on-surface"
-                    >Zapatillas de Running</span
-                  >
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="catZapas" checked />
+                <label class="form-check-label text-on-surface" for="catZapas">
+                  Zapatillas de Running
                 </label>
-                <label
-                  class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-sm rounded transition-colors"
-                >
-                  <input
-                    class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary focus:ring-offset-0"
-                    type="checkbox"
-                  />
-                  <span class="font-body-md text-body-md text-on-surface"
-                    >Estilo de Vida</span
-                  >
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="catVida" />
+                <label class="form-check-label text-on-surface" for="catVida">
+                  Estilo de Vida
                 </label>
-                <label
-                  class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low p-sm rounded transition-colors"
-                >
-                  <input
-                    class="form-checkbox text-primary rounded border-outline-variant focus:ring-primary focus:ring-offset-0"
-                    type="checkbox"
-                  />
-                  <span class="font-body-md text-body-md text-on-surface"
-                    >Accesorios</span
-                  >
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="catAcc" />
+                <label class="form-check-label text-on-surface" for="catAcc">
+                  Accesorios
                 </label>
               </div>
             </div>
-            <!-- Size -->
-            <div>
-              <h3
-                class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-sm"
-              >
-                TALLA
-              </h3>
-              <div class="flex flex-wrap gap-sm">
-                <button
-                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
-                >
-                  XS
-                </button>
-                <button
-                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm bg-primary text-on-primary"
-                >
-                  S
-                </button>
-                <button
-                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
-                >
-                  M
-                </button>
-                <button
-                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
-                >
-                  L
-                </button>
-                <button
-                  class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-primary-container hover:text-on-primary-container transition-colors"
-                >
-                  XL
-                </button>
+
+            <div class="mb-4">
+              <h3 class="label-caps text-on-surface-variant mb-3">TALLA</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="size-btn">XS</button>
+                <button type="button" class="size-btn active">S</button>
+                <button type="button" class="size-btn">M</button>
+                <button type="button" class="size-btn">L</button>
+                <button type="button" class="size-btn">XL</button>
               </div>
             </div>
-            <!-- Price Range -->
+
             <div>
-              <h3
-                class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-sm"
-              >
-                PRECIO
-              </h3>
-              <div class="px-sm">
-                <input
-                  class="w-full accent-primary h-1 bg-surface-variant rounded-full appearance-none"
-                  max="500"
-                  min="0"
-                  type="range"
-                  value="250"
-                />
-                <div
-                  class="flex justify-between mt-sm font-mono text-label-sm text-on-surface-variant"
-                >
-                  <span>$0</span>
-                  <span>$500+</span>
+              <h3 class="label-caps text-on-surface-variant mb-3">PRECIO</h3>
+              <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="500"
+                value="250"
+                aria-label="Rango de precio"
+              />
+              <div class="d-flex justify-content-between font-mono small text-on-surface-variant mt-1">
+                <span>$0</span>
+                <span>$500+</span>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Grid de productos -->
+          <section class="col-lg-9">
+            <div
+              class="d-flex justify-content-between align-items-end border-bottom technical-border pb-3 mb-4"
+            >
+              <h1 class="font-headline text-primary fw-bold mb-0 section-heading">COLECCIONES</h1>
+              <span class="font-mono small text-on-surface-variant">MOSTRANDO 24 RESULTADOS</span>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4">
+              <!-- Producto 1 -->
+              <div class="col">
+                <div class="product-card">
+                  <div class="img-wrap">
+                    <img
+                      src="img/product-tee.jpg"
+                      alt="AeroKnit Performance Tee"
+                    />
+                    <span class="product-tag">NEW</span>
+                  </div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="font-mono label-caps text-on-surface-variant mb-1">
+                      TRAINING GEAR
+                    </div>
+                    <h3 class="font-headline text-primary mb-2" style="font-size: 18px">
+                      AeroKnit Performance Tee
+                    </h3>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2">
+                      <span class="font-mono fw-semibold text-on-surface">$65.00</span>
+                      <button
+                        type="button"
+                        class="btn btn-primary technical-shadow label-caps d-inline-flex align-items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined" style="font-size: 18px">add_shopping_cart</span>
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Producto 2 -->
+              <div class="col">
+                <div class="product-card">
+                  <div class="img-wrap">
+                    <img
+                      src="img/product-velocity.jpg"
+                      alt="Velocity ProX Marathon"
+                    />
+                  </div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="font-mono label-caps text-on-surface-variant mb-1">
+                      ZAPATILLAS
+                    </div>
+                    <h3 class="font-headline text-primary mb-2" style="font-size: 18px">
+                      Velocity ProX Marathon
+                    </h3>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2">
+                      <span class="font-mono fw-semibold text-on-surface">$180.00</span>
+                      <button
+                        type="button"
+                        class="btn btn-primary technical-shadow label-caps d-inline-flex align-items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined" style="font-size: 18px">add_shopping_cart</span>
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Producto 3 -->
+              <div class="col">
+                <div class="product-card">
+                  <div class="img-wrap">
+                    <img
+                      src="img/product-windbreaker.jpg"
+                      alt="Element Shield Windbreaker"
+                    />
+                    <span class="product-tag sale">SALE</span>
+                  </div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="font-mono label-caps text-on-surface-variant mb-1">
+                      ESTILO DE VIDA
+                    </div>
+                    <h3 class="font-headline text-primary mb-2" style="font-size: 18px">
+                      Element Shield Windbreaker
+                    </h3>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2">
+                      <div class="d-flex flex-column">
+                        <span class="font-mono small text-on-surface-variant text-decoration-line-through">
+                          $145.00
+                        </span>
+                        <span class="font-mono fw-semibold text-error">$115.00</span>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-primary technical-shadow label-caps d-inline-flex align-items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined" style="font-size: 18px">add_shopping_cart</span>
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Producto 4 -->
+              <div class="col">
+                <div class="product-card">
+                  <div class="img-wrap">
+                    <img
+                      src="img/product-compression.jpg"
+                      alt="Pantalones de Compresión Core"
+                    />
+                  </div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="font-mono label-caps text-on-surface-variant mb-1">
+                      ROPA DE ENTRENAMIENTO
+                    </div>
+                    <h3 class="font-headline text-primary mb-2" style="font-size: 18px">
+                      Pantalones de Compresión Core
+                    </h3>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2">
+                      <span class="font-mono fw-semibold text-on-surface">$85.00</span>
+                      <button
+                        type="button"
+                        class="btn btn-primary technical-shadow label-caps d-inline-flex align-items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined" style="font-size: 18px">add_shopping_cart</span>
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Producto 5 -->
+              <div class="col">
+                <div class="product-card">
+                  <div class="img-wrap">
+                    <img
+                      src="img/product-backpack.jpg"
+                      alt="Mochila Táctica Transit"
+                    />
+                  </div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="font-mono label-caps text-on-surface-variant mb-1">
+                      ACCESSORIES
+                    </div>
+                    <h3 class="font-headline text-primary mb-2" style="font-size: 18px">
+                      Mochila Táctica Transit
+                    </h3>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2">
+                      <span class="font-mono fw-semibold text-on-surface">$120.00</span>
+                      <button
+                        type="button"
+                        class="btn btn-primary technical-shadow label-caps d-inline-flex align-items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined" style="font-size: 18px">add_shopping_cart</span>
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Producto 6 -->
+              <div class="col">
+                <div class="product-card">
+                  <div class="img-wrap">
+                    <img
+                      src="img/product-watch.jpg"
+                      alt="Reloj de Métricas"
+                    />
+                  </div>
+                  <div class="card-body d-flex flex-column flex-grow-1">
+                    <div class="font-mono label-caps text-on-surface-variant mb-1">
+                      ACCESSORIES
+                    </div>
+                    <h3 class="font-headline text-primary mb-2" style="font-size: 18px">
+                      Reloj de Métricas
+                    </h3>
+                    <div class="mt-auto d-flex align-items-center justify-content-between pt-2">
+                      <span class="font-mono fw-semibold text-on-surface">$250.00</span>
+                      <button
+                        type="button"
+                        class="btn btn-primary technical-shadow label-caps d-inline-flex align-items-center gap-1"
+                      >
+                        <span class="material-symbols-outlined" style="font-size: 18px">add_shopping_cart</span>
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </aside>
-      <!-- Product Grid -->
-      <section class="md:col-span-9">
-        <div
-          class="flex justify-between items-end mb-lg pb-sm border-b technical-border"
-        >
-          <h1 class="font-headline-md text-headline-md text-primary">
-            COLECCIONES
-          </h1>
-          <span class="font-mono text-label-sm text-on-surface-variant"
-            >MOSTRANDO 24 RESULTADOS</span
-          >
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
-          <!-- Product Card 1 -->
-          <div
-            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
-          >
-            <div
-              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="A high-quality product shot of a sleek, modern athletic training shirt in dark navy. The lighting is crisp and technical, highlighting the moisture-wicking fabric texture. The background is a stark, minimal studio setup in light grey, emphasizing the product's performance-oriented design. The aesthetic is clean, premium, and focused on athletic excellence."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq1PynqRPMEhotQGcEP-tgcFsV5vKP8JqeqqfnhCyn5IO9HM-FGjvtD03doyTMo98MFJJoKEgvJejLiGM7HY7chWIVKuMT3Bueo1zq8_J1h3-bg0FmatsGqu5lAtYUWHh-zeAboIJYt-XSsnsDwlBfsrJqk9hqCoP6oMhxjhgiFMkoNGP_XGEGQkTuoRcuNsK6LRvIcl8aOtOg08n5i0nsTTq2Xy_GJ7YdpEWZxYsPyD76uuu216kd-g"
-              />
-              <div
-                class="absolute top-sm right-sm bg-surface/90 backdrop-blur px-sm py-xs rounded font-mono text-label-caps text-primary technical-border"
-              >
-                NEW
-              </div>
-            </div>
-            <div class="p-md flex flex-col flex-grow bg-surface">
-              <div
-                class="font-mono text-label-caps text-on-surface-variant mb-xs"
-              >
-                TRAINING GEAR
-              </div>
-              <h3
-                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
-              >
-                AeroKnit Performance Tee
-              </h3>
-              <div class="mt-auto flex items-center justify-between">
-                <span
-                  class="font-mono text-body-lg text-on-surface font-semibold"
-                  >$65.00</span
-                >
-                <button
-                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
-                >
-                  <span
-                    class="material-symbols-outlined text-[18px]"
-                    data-icon="add_shopping_cart"
-                    >add_shopping_cart</span
-                  >
-                  AGREGAR
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card 2 -->
-          <div
-            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
-          >
-            <div
-              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="A dynamic product photograph of premium running shoes. The shoes feature a lightweight, breathable mesh upper in crisp white with subtle blue accents and a thick, highly-engineered aerodynamic sole. Shot in a brightly lit, sterile studio environment against a white background to emphasize technical precision and speed. The mood is energetic and advanced."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnlQ_FXd8IHHJA_aortsGfUB0Hcgb2WKXilesCnhG1kpepMo5ko5QnCOkkS34nIK_iylq1wGC6Uu1fo9Q6g0SabaI2O1iMfwfI7i8MIKT67H5DmQCeCDDDEAvjBkjLu6Z2Ddi2DhYqewYIzcRJEhoiW4GhXUjOgIdGfbjdd3VLN__IBq9ykzxiRKsu1nMbNgVFE6SC5979Hja5JizrFyw19GkUC0fk9UY_gMhkdXDx6d3YYSNL1CR9oA"
-              />
-            </div>
-            <div class="p-md flex flex-col flex-grow bg-surface">
-              <div
-                class="font-mono text-label-caps text-on-surface-variant mb-xs"
-              >
-                ZAPATILLAS
-              </div>
-              <h3
-                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
-              >
-                Velocity ProX Marathon
-              </h3>
-              <div class="mt-auto flex items-center justify-between">
-                <span
-                  class="font-mono text-body-lg text-on-surface font-semibold"
-                  >$180.00</span
-                >
-                <button
-                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
-                >
-                  <span
-                    class="material-symbols-outlined text-[18px]"
-                    data-icon="add_shopping_cart"
-                    >add_shopping_cart</span
-                  >
-                  AGREGAR
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card 3 -->
-          <div
-            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
-          >
-            <div
-              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="A stylized product image of a high-tech windbreaker jacket in deep charcoal grey. The fabric has a subtle sheen, indicating weather resistance. The lighting is dramatic, casting structured shadows that highlight the garment's technical tailoring and precise seams. Set against a minimalist light background, conveying a sleek, modern, athletic lifestyle aesthetic."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpnLZ3IANVc3GVuOxPAb95KZNx8ylgyFgC4BxZ-9VZDKG3o3Ru49E57q_oExDFf1KElyKgQ6KgGrRB2bZ_J34fmbcLunZugfAqEHqOISfRgoveC30z49mZnN8LVt4P4UHJaAlMF5JQROgoPgY4dtnSwvCYvTK5JKZ_2yJrx_hcWVAiCeJMVMZrLLtIP002wPL4UEoRSi13aFRuZrB6IkMCkUZOWZ14ypGc6udJZAUUcXcYGpPTvszMhA"
-              />
-              <div
-                class="absolute top-sm right-sm bg-surface/90 backdrop-blur px-sm py-xs rounded font-mono text-label-caps text-error technical-border"
-              >
-                SALE
-              </div>
-            </div>
-            <div class="p-md flex flex-col flex-grow bg-surface">
-              <div
-                class="font-mono text-label-caps text-on-surface-variant mb-xs"
-              >
-                ESTILO DE VIDA
-              </div>
-              <h3
-                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
-              >
-                Element Shield Windbreaker
-              </h3>
-              <div class="mt-auto flex items-center justify-between">
-                <div class="flex flex-col">
-                  <span
-                    class="font-mono text-label-sm text-on-surface-variant line-through"
-                    >$145.00</span
-                  >
-                  <span class="font-mono text-body-lg text-error font-semibold"
-                    >$115.00</span
-                  >
-                </div>
-                <button
-                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
-                >
-                  <span
-                    class="material-symbols-outlined text-[18px]"
-                    data-icon="add_shopping_cart"
-                    >add_shopping_cart</span
-                  >
-                  AGREGAR
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card 4 -->
-          <div
-            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
-          >
-            <div
-              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="A close-up product shot of athletic compression tights in black. The image emphasizes the advanced panel construction and robust stitching. Shot with hard, high-contrast lighting in a clean studio environment to highlight the technical fabric properties. The overall feel is strong, durable, and highly engineered for athletic performance."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANZqzfWsQAN6GPaaHLdOAiVGthP6NSsjhvlSCIU946DiYpdYzcFgy4SWjv2nyjnx5Qzc_A3-hTLrfIYPbX3kgZ047kFbl41wVrl9qd-ytoYTVrs5LAsGwF9bsz1AVUSOby1Xq_D33rPqMm8kNPfC9pfK3FN5pNo23I5eb1vaRx11FQMh55hHgVKEcH5tbPf-eVY1H6m5K7C8xcIqm0s8ygHyktvee56-kpeipQuN0k8kpHvdUIq07_tA"
-              />
-            </div>
-            <div class="p-md flex flex-col flex-grow bg-surface">
-              <div
-                class="font-mono text-label-caps text-on-surface-variant mb-xs"
-              >
-                ROPA DE ENTRENAMIENTO
-              </div>
-              <h3
-                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
-              >
-                Pantalones de Compresión Core
-              </h3>
-              <div class="mt-auto flex items-center justify-between">
-                <span
-                  class="font-mono text-body-lg text-on-surface font-semibold"
-                  >$85.00</span
-                >
-                <button
-                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
-                >
-                  <span
-                    class="material-symbols-outlined text-[18px]"
-                    data-icon="add_shopping_cart"
-                    >add_shopping_cart</span
-                  >
-                  AGREGAR
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card 5 -->
-          <div
-            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
-          >
-            <div
-              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="A premium shot of a technical athletic backpack in navy blue. The bag features multiple utility straps, reinforced zippers, and a structured, angular design. The lighting is clean and even, set against a stark white background to emphasize the bag's utilitarian and organized aesthetic. It looks ready for the gym or a commute."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI9NBHFtrBVjoKyv5iFBzBySLQ1oJ-QFU3-lND53RdJtzoZn9LeQ60YSBTsrd_yZrWTg9c62SF9q9MzWHnfpdGQfz4Wm8OPVqVzojS1uzAcRQ4gHgHsbjK_wF4yMwqrqZVXvrmQBsKhpwt0qqB25Sw7GB_B2RKazO7dTgByHTVlXvEoO8ZmpMnbtoDJjsI-wxYKoo-bwOzweTEw96NRwn7Rgi7kHBpIrtGAJtygSUYbjyJTL50oPES3w"
-              />
-            </div>
-            <div class="p-md flex flex-col flex-grow bg-surface">
-              <div
-                class="font-mono text-label-caps text-on-surface-variant mb-xs"
-              >
-                ACCESSORIES
-              </div>
-              <h3
-                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
-              >
-                Mochila Táctica Transit
-              </h3>
-              <div class="mt-auto flex items-center justify-between">
-                <span
-                  class="font-mono text-body-lg text-on-surface font-semibold"
-                  >$120.00</span
-                >
-                <button
-                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
-                >
-                  <span
-                    class="material-symbols-outlined text-[18px]"
-                    data-icon="add_shopping_cart"
-                    >add_shopping_cart</span
-                  >
-                  AGREGAR
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card 6 -->
-          <div
-            class="group bg-surface technical-border rounded-lg overflow-hidden flex flex-col hover:border-primary/50 transition-colors"
-          >
-            <div
-              class="aspect-[4/5] relative bg-surface-container-low overflow-hidden"
-            >
-              <img
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                data-alt="A sleek product photograph of a modern fitness smartwatch with a matte black metal casing and a durable silicone strap. The watch face displays minimalist, bright blue data metrics. The background is a soft, off-white studio setting. The image exudes high-tech precision, data-driven performance, and premium build quality."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAmG6XlCBhIBJ72UA0jRCLmX_6uttxBHY_PkKUBdrOrg5KujHorKTM2KxkaVNqxLi-S7wGVEHBUEOnBA4OD46oQyLoT8eAtykEp7rnTgvjH92it7AokVEh9UOmrafYn7_cS45ELIFUjQlprQ-lQg9Y_PxSfXuf8l4C798EutGAbyH9ctfu3aQAAnGqAck30RpKYCuqCbkS8XMwIQXxYAgl40aZULUIgQvDhVzMwf7ZGfKEbnrH80MoqA"
-              />
-            </div>
-            <div class="p-md flex flex-col flex-grow bg-surface">
-              <div
-                class="font-mono text-label-caps text-on-surface-variant mb-xs"
-              >
-                ACCESSORIES
-              </div>
-              <h3
-                class="font-headline-sm text-lg text-primary mb-sm line-clamp-2"
-              >
-                Reloj de Métricas
-              </h3>
-              <div class="mt-auto flex items-center justify-between">
-                <span
-                  class="font-mono text-body-lg text-on-surface font-semibold"
-                  >$250.00</span
-                >
-                <button
-                  class="bg-primary text-on-primary px-sm py-sm rounded technical-shadow flex items-center gap-xs font-label-caps text-label-caps uppercase transition-all"
-                >
-                  <span
-                    class="material-symbols-outlined text-[18px]"
-                    data-icon="add_shopping_cart"
-                    >add_shopping_cart</span
-                  >
-                  AGREGAR
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Pagination -->
-        <div class="mt-xl flex justify-center items-center gap-sm">
-          <button
-            class="w-10 h-10 technical-border rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors"
-          >
-            <span class="material-symbols-outlined" data-icon="chevron_left"
-              >chevron_left</span
-            >
-          </button>
-          <button
-            class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm bg-primary text-on-primary"
-          >
-            1
-          </button>
-          <button
-            class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-surface-container-low transition-colors text-on-surface"
-          >
-            2
-          </button>
-          <button
-            class="w-10 h-10 technical-border rounded flex items-center justify-center font-mono text-label-sm hover:bg-surface-container-low transition-colors text-on-surface"
-          >
-            3
-          </button>
-          <button
-            class="w-10 h-10 technical-border rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors"
-          >
-            <span class="material-symbols-outlined" data-icon="chevron_right"
-              >chevron_right</span
-            >
-          </button>
-        </div>
-      </section>
-    </main>
-    <!-- Footer -->
-    <footer
-      class="bg-surface-container-lowest text-primary py-stack-lg border-t border-outline-variant mt-2xl"
-    >
-      <div
-        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto py-xl"
-      >
-        <!-- Brand Column -->
-        <div class="col-span-1 md:col-span-1 flex flex-col gap-md">
-          <span
-            class="font-display-lg-mobile md:font-display-lg font-black text-primary tracking-tighter"
-            >FITS</span
-          >
-          <p class="font-body-sm text-sm text-on-surface-variant">
-            Diseñado para atletas de élite. Equipamiento de precisión para
-            rendimiento máximo.
-          </p>
-        </div>
-        <!-- Links Columns -->
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            SOPORTE
-          </h4>
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >ATENCIÓN AL CLIENTE</a
-          >
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >UBICACIÓN DE TIENDAS</a
-          >
-        </div>
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            LEGAL
-          </h4>
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >POLÍTICA DE PRIVACIDAD</a
-          >
-          <a
-            class="font-body-sm text-sm text-on-surface-variant hover:text-primary-container transition-colors duration-300"
-            href="#"
-            >TÉRMINOS DE SERVICIO</a
-          >
-        </div>
-        <div class="col-span-1 flex flex-col gap-sm">
-          <h4
-            class="font-label-caps text-label-caps mb-sm border-b border-outline-variant pb-xs w-fit"
-          >
-            COMUNICACIONES
-          </h4>
-          <div class="flex mt-sm w-full max-w-xs">
-            <input
-              class="w-full bg-surface border border-outline-variant px-sm py-xs font-label-caps text-xs focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary h-10 rounded-none"
-              placeholder="INGRESA TU EMAIL"
-              type="email"
-            />
-            <button
-              class="bg-primary text-on-primary px-sm flex items-center justify-center border border-primary h-10 hover:bg-primary-container transition-colors"
-            >
-              <span class="material-symbols-outlined text-sm"
-                >arrow_forward</span
-              >
-            </button>
-          </div>
+
+            <!-- Paginación -->
+            <nav class="mt-5 d-flex justify-content-center" aria-label="Paginación de productos">
+              <ul class="pagination mb-0">
+                <li class="page-item">
+                  <button class="page-link" type="button" aria-label="Anterior">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                  </button>
+                </li>
+                <li class="page-item active">
+                  <button class="page-link" type="button">1</button>
+                </li>
+                <li class="page-item">
+                  <button class="page-link" type="button">2</button>
+                </li>
+                <li class="page-item">
+                  <button class="page-link" type="button">3</button>
+                </li>
+                <li class="page-item">
+                  <button class="page-link" type="button" aria-label="Siguiente">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </section>
         </div>
       </div>
-      <div
-        class="px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto pt-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-sm"
-      >
-        <span class="font-label-caps text-xs text-on-surface-variant">
-          © 2024 APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
-        </span>
-        <div class="flex gap-md text-on-surface-variant">
-          <!-- Social placeholders -->
-          <span
-            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
-            >language</span
-          >
-          <span
-            class="material-symbols-outlined text-sm hover:text-primary cursor-pointer transition-colors"
-            >share</span
-          >
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-surface-lowest text-primary py-5 border-top border-outline-variant mt-auto">
+      <div class="container-lg">
+        <div class="row g-4 pb-4 border-bottom border-outline-variant">
+          <div class="col-md-3 d-flex flex-column gap-2">
+            <img src="img/fits%20two.png" alt="FITS" height="48" class="align-self-start" />
+            <p class="text-on-surface-variant small mb-0">
+              Diseñado para atletas de élite. Equipamiento de precisión para
+              rendimiento máximo.
+            </p>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">SOPORTE</h4>
+            <a class="footer-link mb-2" href="#">ATENCIÓN AL CLIENTE</a>
+            <a class="footer-link" href="#">UBICACIÓN DE TIENDAS</a>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">LEGAL</h4>
+            <a class="footer-link mb-2" href="#">POLÍTICA DE PRIVACIDAD</a>
+            <a class="footer-link" href="#">TÉRMINOS DE SERVICIO</a>
+          </div>
+          <div class="col-md-3 d-flex flex-column">
+            <h4 class="footer-heading">COMUNICACIONES</h4>
+            <div class="input-group input-group-newsletter">
+              <input
+                type="email"
+                class="form-control label-caps"
+                placeholder="INGRESA TU EMAIL"
+                aria-label="Correo electrónico"
+              />
+              <button type="button" class="btn btn-primary" aria-label="Suscribirse">
+                <span class="material-symbols-outlined" style="font-size: 18px">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 pt-4"
+        >
+          <span class="label-caps text-on-surface-variant">
+            © <span id="year">2024</span> APEX PERFORMANCE. DISEÑADO PARA ATLETAS DE ÉLITE.
+          </span>
+          <div class="d-flex gap-3 text-on-surface-variant">
+            <span class="material-symbols-outlined" style="font-size: 20px" role="button">language</span>
+            <span class="material-symbols-outlined" style="font-size: 20px" role="button">share</span>
+          </div>
         </div>
       </div>
     </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
