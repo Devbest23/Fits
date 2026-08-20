@@ -63,6 +63,9 @@
             <li class="nav-item">
               <a class="nav-link" href="ofertas.html">Ofertas</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="al-mayor.html">Al Mayor</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -148,91 +151,8 @@
             </a>
           </div>
 
-          <div class="row g-4">
-            <!-- Tarjeta destacada -->
-            <a href="products.html" class="col-md-8 feature-card">
-              <div
-                class="card-img-cover"
-                style="
-                  background-image: url(&quot;img/feature-zapatillas.jpg?v=2&quot;);
-                "
-              ></div>
-              <div class="card-overlay"></div>
-              <div class="card-body-overlay d-flex justify-content-end p-3">
-                <span
-                  class="label-caps text-primary border border-outline-variant bg-surface px-2 py-1"
-                >
-                  NUEVO
-                </span>
-              </div>
-              <div
-                class="card-body-overlay bg-surface border-top border-outline-variant p-4 m-3 mt-auto"
-              >
-                <h3 class="font-headline text-primary fw-bold mb-2">
-                  Baggy Pants
-                </h3>
-                <div
-                  class="d-flex justify-content-between align-items-center flex-wrap gap-2"
-                >
-                  <p class="text-on-surface-variant mb-0">
-                    Sistema de propulsión con fibra de carbono.
-                  </p>
-                  <span
-                    class="label-caps text-primary bg-primary-fixed px-2 py-1 border"
-                    >185.00 EUR</span
-                  >
-                </div>
-              </div>
-            </a>
-
-            <!-- Tarjeta secundaria -->
-            <div
-              class="col-md-4 card border border-outline-variant bg-surface overflow-hidden d-flex flex-column"
-            >
-              <div class="position-relative overflow-hidden" style="flex: 2">
-                <img
-                  src="img/product-compression.jpg?v=2"
-                  alt="COMPRESSION SHIRT MK-II"
-                  class="w-100 h-100 object-fit-cover product-zoom"
-                />
-              </div>
-              <div
-                class="p-3 d-flex flex-column justify-content-between"
-                style="
-                  flex: 1;
-                  border-top: 1px solid var(--fits-outline-variant);
-                "
-              >
-                <div>
-                  <h3
-                    class="font-headline text-primary fw-bold text-uppercase mb-1"
-                    style="font-size: 13px"
-                  >
-                    COMPRESSION SHIRT MK-II
-                  </h3>
-                  <p class="label-caps text-on-surface-variant small mb-0">
-                    REGULACIÓN TÉRMICA
-                  </p>
-                </div>
-                <div
-                  class="d-flex justify-content-between align-items-center mt-2"
-                >
-                  <span class="label-caps text-primary">65.00 EUR</span>
-                  <button
-                    type="button"
-                    class="btn btn-outline-primary rounded-circle d-flex align-items-center justify-content-center p-0"
-                    style="width: 32px; height: 32px"
-                    aria-label="Agregar"
-                  >
-                    <span
-                      class="material-symbols-outlined"
-                      style="font-size: 18px"
-                      >add</span
-                    >
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div class="row g-4" id="products-grid" data-page="index">
+            <!-- Products injected by js -->
           </div>
         </div>
       </section>
@@ -398,21 +318,8 @@
             </button>
           </div>
           <div class="col-md-7">
-            <div class="map-placeholder">
-              <div
-                class="grid-bg position-absolute top-0 start-0 w-100 h-100"
-                style="opacity: 0.3"
-              ></div>
-              <div
-                class="position-absolute top-50 start-50 translate-middle d-flex flex-column align-items-center gap-2 text-center"
-              >
-                <span
-                  class="material-symbols-outlined text-primary"
-                  style="font-size: 40px"
-                  >map</span
-                >
-                <span class="label-caps text-primary">MAPA INTERACTIVO</span>
-              </div>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30230.118745740318!2d-71.64912949177352!3d10.624947017680748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8998532c626369%3A0x68aa14f2acc20bc!2sCentro%20Comercial%20Gran%20Bazar.!5e0!3m2!1ses!2sve!4v1787185017562!5m2!1ses!2sve" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
           </div>
         </div>
@@ -495,5 +402,7 @@
 
     <script src="js/main.js?v=2"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
