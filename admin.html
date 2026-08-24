@@ -88,10 +88,10 @@
               <tr>
                 <th>Imagen</th>
                 <th>Nombre</th>
-                <th>Categoría</th>
+                <th>Tipo</th>
+                <th>Categoría / Detalle</th>
                 <th>Precio</th>
-                <th>Oferta</th>
-                <th>Etiqueta</th>
+                <th>Oferta / Paquete</th>
                 <th class="text-end">Acciones</th>
               </tr>
             </thead>
@@ -119,23 +119,50 @@
                 <label for="prodName" class="form-label">Nombre del Producto</label>
                 <input type="text" class="form-control" id="prodName" required>
               </div>
-              
+
               <div class="mb-3">
-                <label for="prodCategory" class="form-label">Categoría</label>
-                <div class="input-group">
-                  <select class="form-select" id="prodCategory">
-                    <!-- Categories injected via JS -->
-                  </select>
-                  <input type="text" class="form-control" id="prodNewCategory" placeholder="O escribe nueva">
+                <label for="prodType" class="form-label">Tipo de Producto</label>
+                <select class="form-select" id="prodType">
+                  <option value="detal">Al detal</option>
+                  <option value="mayor">Al mayor</option>
+                </select>
+              </div>
+              
+              <!-- Seccion Al detal -->
+              <div id="detalFields">
+                <div class="mb-3">
+                  <label for="prodCategory" class="form-label">Categoría</label>
+                  <div class="input-group">
+                    <select class="form-select" id="prodCategory">
+                      <!-- Categories injected via JS -->
+                    </select>
+                    <input type="text" class="form-control" id="prodNewCategory" placeholder="O escribe nueva">
+                  </div>
+                </div>
+
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="prodIsOffer">
+                  <label class="form-check-label fw-semibold text-primary" for="prodIsOffer">
+                    ¿Está en oferta?
+                  </label>
                 </div>
               </div>
 
+              <!-- Seccion Al mayor -->
+              <div id="mayorFields" style="display: none;">
+                <div class="mb-3">
+                  <label for="prodPackageQuantity" class="form-label">Cantidad de productos en el paquete</label>
+                  <input type="number" class="form-control" id="prodPackageQuantity" min="1" placeholder="Ej: 12">
+                </div>
+              </div>
+
+              <!-- Precios -->
               <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="prodPrice" class="form-label">Precio Normal ($)</label>
+                <div class="col-md-6 mb-3" id="priceContainer">
+                  <label for="prodPrice" class="form-label" id="lblPrice">Precio ($)</label>
                   <input type="number" class="form-control" id="prodPrice" step="0.01" required>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3" id="salePriceContainer">
                   <label for="prodSalePrice" class="form-label">Precio Oferta ($)</label>
                   <input type="number" class="form-control" id="prodSalePrice" step="0.01" placeholder="Opcional">
                 </div>
@@ -154,33 +181,90 @@
                   <option value="">Ninguna</option>
                   <option value="NEW">NEW</option>
                   <option value="SALE">SALE</option>
+                  <option value="MAYOR">MAYOR</option>
                 </select>
               </div>
 
-              <div class="mb-3">
-                <label class="form-label">Mostrar en:</label>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="showProducts" checked>
-                  <label class="form-check-label" for="showProducts">Sección "Productos"</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="showOffers">
-                  <label class="form-check-label" for="showOffers">Sección "Ofertas"</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="showWholesale">
-                  <label class="form-check-label" for="showWholesale">Sección "Al Mayor"</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="showRecommended">
-                  <label class="form-check-label" for="showRecommended">Sección "Recomendados" (Carrito)</label>
-                </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="showRecommended">
+                <label class="form-check-label" for="showRecommended">Mostrar en Recomendados del Carrito</label>
               </div>
             </form>
           </div>
           <div class="modal-footer border-outline-variant">
             <button type="button" class="btn btn-outline-secondary label-caps" data-bs-dismiss="modal">Cancelar</button>
             <button type="button" class="btn btn-primary technical-shadow label-caps" id="btnSaveProduct">Guardar Producto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Atención al Cliente -->
+    <div class="modal fade" id="modalAtencionCliente" tabindex="-1" aria-labelledby="modalAtencionClienteLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-surface border-outline-variant text-on-surface">
+          <div class="modal-header border-outline-variant">
+            <h5 class="modal-title font-headline text-primary" id="modalAtencionClienteLabel">ATENCIÓN AL CLIENTE // FITS</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-on-surface-variant mb-4">Nuestro equipo de soporte técnico y atención al cliente está disponible para resolver cualquier duda sobre tus pedidos, envíos, tallas o compras al mayor.</p>
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <div class="glass-panel border border-outline-variant p-3">
+                  <h6 class="font-mono text-primary mb-1">HORARIO DE ATENCIÓN</h6>
+                  <p class="small text-on-surface-variant mb-0">Lunes a Viernes: 8:00 AM - 8:00 PM<br>Sábados: 9:00 AM - 6:00 PM</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="glass-panel border border-outline-variant p-3">
+                  <h6 class="font-mono text-primary mb-1">CANALES OFICIALES</h6>
+                  <p class="small text-on-surface-variant mb-0">WhatsApp Directo: +1 (234) 567-890<br>Soporte Express FITS</p>
+                </div>
+              </div>
+            </div>
+            <a href="https://wa.me/1234567890?text=Hola%20FITS!%20Necesito%20atenci%C3%B3n%20al%20cliente" target="_blank" class="btn btn-primary technical-shadow label-caps w-100 py-3 d-flex align-items-center justify-content-center gap-2">
+              <span class="material-symbols-outlined">chat</span>
+              CONTACTAR AHORA POR WHATSAPP
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Política de Privacidad -->
+    <div class="modal fade" id="modalPrivacidad" tabindex="-1" aria-labelledby="modalPrivacidadLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-surface border-outline-variant text-on-surface">
+          <div class="modal-header border-outline-variant">
+            <h5 class="modal-title font-headline text-primary" id="modalPrivacidadLabel">POLÍTICA DE PRIVACIDAD</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body small text-on-surface-variant" style="line-height: 1.7;">
+            <p>En <strong>FITS</strong> nos tomamos muy en serio la seguridad y privacidad de tus datos personales.</p>
+            <h6 class="text-primary font-mono mt-3">1. PROTECCIÓN DE DATOS</h6>
+            <p>Toda la información proporcionada durante la navegación y el proceso de compra por WhatsApp se utiliza exclusivamente para la gestión y procesamiento de tus pedidos.</p>
+            <h6 class="text-primary font-mono mt-3">2. ALMACENAMIENTO SEGURO</h6>
+            <p>No almacenamos datos financieros ni tarjetas de crédito en nuestros servidores. Tus transacciones se realizan directamente mediante canales verificados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Términos de Servicio -->
+    <div class="modal fade" id="modalTerminos" tabindex="-1" aria-labelledby="modalTerminosLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-surface border-outline-variant text-on-surface">
+          <div class="modal-header border-outline-variant">
+            <h5 class="modal-title font-headline text-primary" id="modalTerminosLabel">TÉRMINOS DE SERVICIO</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body small text-on-surface-variant" style="line-height: 1.7;">
+            <p>Al utilizar la plataforma FITS, aceptas los siguientes términos de servicio:</p>
+            <h6 class="text-primary font-mono mt-3">1. ENVÍOS Y ENTREGAS</h6>
+            <p>Los pedidos se procesan inmediatamente al confirmar tu compra con nuestro equipo de atención por WhatsApp.</p>
+            <h6 class="text-primary font-mono mt-3">2. DEVOLUCIONES Y GARANTÍA</h6>
+            <p>Ofrecemos garantía de 30 días en todos nuestros productos por defectos de fábrica o desajuste de talla.</p>
           </div>
         </div>
       </div>

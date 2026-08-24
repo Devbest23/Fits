@@ -11,6 +11,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnClearDB = document.getElementById('btnClearDB');
   const fileInput = document.getElementById('prodImageFile');
 
+  const prodTypeSelect = document.getElementById('prodType');
+  const detalFields = document.getElementById('detalFields');
+  const mayorFields = document.getElementById('mayorFields');
+  const prodIsOfferChk = document.getElementById('prodIsOffer');
+  const salePriceContainer = document.getElementById('salePriceContainer');
+
+  function toggleTypeFields() {
+    const type = prodTypeSelect.value;
+    if (type === 'mayor') {
+      detalFields.style.display = 'none';
+      mayorFields.style.display = 'block';
+      salePriceContainer.style.display = 'none';
+    } else {
+      detalFields.style.display = 'block';
+      mayorFields.style.display = 'none';
+      salePriceContainer.style.display = prodIsOfferChk.checked ? 'block' : 'none';
+    }
+  }
+
+  prodTypeSelect.addEventListener('change', toggleTypeFields);
+  prodIsOfferChk.addEventListener('change', () => {
+    if (prodTypeSelect.value === 'detal') {
+      salePriceContainer.style.display = prodIsOfferChk.checked ? 'block' : 'none';
+    }
+  });
+
   // Populate categories
   function loadCategories() {
     catSelect.innerHTML = '';
@@ -35,13 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     products.forEach(p => {
       const tr = document.createElement('tr');
+      const isMayor = p.type === 'mayor';
+      const typeBadge = isMayor 
+        ? '<span class="badge bg-info text-dark">Al Mayor</span>' 
+        : '<span class="badge bg-primary">Al Detal</span>';
+      
+      const catOrDesc = isMayor ? 'Venta por volumen' : (p.category || 'General');
+      const offerOrPkg = isMayor 
+        ? `<span class="badge bg-secondary">${p.packageQuantity || 1} uds/paquete</span>`
+        : (p.salePrice ? `<span class="text-error font-mono">$${p.salePrice.toFixed(2)}</span>` : '-');
+
       tr.innerHTML = `
         <td><img src="${p.image || 'img/fits%20two.png'}" alt="${p.name}" style="width:50px; height:50px; object-fit:cover; border-radius:4px;"></td>
         <td class="font-headline text-primary">${p.name}</td>
-        <td class="font-mono small">${p.category}</td>
+        <td>${typeBadge}</td>
+        <td class="font-mono small">${catOrDesc}</td>
         <td class="font-mono">$${p.price.toFixed(2)}</td>
-        <td class="font-mono text-error">${p.salePrice ? '$' + p.salePrice.toFixed(2) : '-'}</td>
-        <td>${p.tag ? `<span class="badge bg-primary text-background">${p.tag}</span>` : '-'}</td>
+        <td>${offerOrPkg}</td>
         <td class="text-end">
           <button class="btn btn-sm btn-outline-secondary me-2 btn-edit" data-id="${p.id}">Editar</button>
           <button class="btn btn-sm btn-outline-danger btn-delete" data-id="${p.id}">Eliminar</button>
@@ -66,19 +102,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('productModalLabel').textContent = 'Editar Producto';
     document.getElementById('prodId').value = p.id;
     document.getElementById('prodName').value = p.name;
-    document.getElementById('prodCategory').value = p.category;
+    document.getElementById('prodType').value = p.type || 'detal';
+    
+    if (p.category) document.getElementById('prodCategory').value = p.category;
     document.getElementById('prodNewCategory').value = '';
+    
+    document.getElementById('prodIsOffer').checked = p.isOffer === true || !!p.salePrice;
+    document.getElementById('prodPackageQuantity').value = p.packageQuantity || '';
+
     document.getElementById('prodPrice').value = p.price;
     document.getElementById('prodSalePrice').value = p.salePrice || '';
     document.getElementById('prodImage').value = p.image || '';
-    document.getElementById('prodImageFile').value = ''; // clear file input
+    document.getElementById('prodImageFile').value = ''; 
     document.getElementById('prodTag').value = p.tag || '';
-    
-    document.getElementById('showProducts').checked = p.showInProducts !== false;
-    document.getElementById('showOffers').checked = p.showInOffers === true;
-    document.getElementById('showWholesale').checked = p.showInWholesale === true;
     document.getElementById('showRecommended').checked = p.showInRecommended === true;
 
+    toggleTypeFields();
     modal.show();
   }
 
@@ -95,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 2 * 1024 * 1024) {
-        alert("La imagen es demasiado grande. Por favor, sube una imagen menor a 2MB para no saturar el LocalStorage.");
+        alert("La imagen es demasiado grande. Por favor, sube una imagen menor a 2MB.");
         fileInput.value = '';
         return;
       }
@@ -111,32 +150,51 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   btnSave.addEventListener('click', () => {
-    // Basic validation
-    if (!document.getElementById('prodName').value || !document.getElementById('prodPrice').value) {
-      alert("Nombre y Precio son requeridos.");
+    const name = document.getElementById('prodName').value.trim();
+    const price = parseFloat(document.getElementById('prodPrice').value);
+    const type = prodTypeSelect.value;
+
+    if (!name || isNaN(price)) {
+      alert("Nombre y Precio válido son requeridos.");
       return;
     }
 
     const id = document.getElementById('prodId').value;
     
-    let category = catSelect.value;
-    const newCat = catNew.value.trim().toUpperCase();
-    if (newCat) {
-      category = newCat;
-      window.FITS_DB.addCategory(category);
-      loadCategories(); // refresh list
+    let category = 'GENERAL';
+    let isOffer = false;
+    let salePrice = null;
+    let packageQuantity = null;
+
+    if (type === 'detal') {
+      category = catSelect.value;
+      const newCat = catNew.value.trim().toUpperCase();
+      if (newCat) {
+        category = newCat;
+        window.FITS_DB.addCategory(category);
+        loadCategories();
+      }
+      isOffer = prodIsOfferChk.checked;
+      if (isOffer) {
+        const sp = parseFloat(document.getElementById('prodSalePrice').value);
+        salePrice = !isNaN(sp) ? sp : null;
+      }
+    } else if (type === 'mayor') {
+      category = 'AL MAYOR';
+      const pkgQty = parseInt(document.getElementById('prodPackageQuantity').value, 10);
+      packageQuantity = !isNaN(pkgQty) && pkgQty > 0 ? pkgQty : 10;
     }
 
     const prodData = {
-      name: document.getElementById('prodName').value,
+      name: name,
+      type: type,
       category: category,
-      price: parseFloat(document.getElementById('prodPrice').value),
-      salePrice: document.getElementById('prodSalePrice').value ? parseFloat(document.getElementById('prodSalePrice').value) : null,
-      image: document.getElementById('prodImage').value, // Could be base64 or previous URL
+      price: price,
+      salePrice: salePrice,
+      isOffer: isOffer,
+      packageQuantity: packageQuantity,
+      image: document.getElementById('prodImage').value,
       tag: document.getElementById('prodTag').value || null,
-      showInProducts: document.getElementById('showProducts').checked,
-      showInOffers: document.getElementById('showOffers').checked,
-      showInWholesale: document.getElementById('showWholesale').checked,
       showInRecommended: document.getElementById('showRecommended').checked
     };
 
@@ -157,10 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prodId').value = '';
     document.getElementById('prodImage').value = '';
     base64Image = null;
-    document.getElementById('showProducts').checked = true;
-    document.getElementById('showOffers').checked = false;
-    document.getElementById('showWholesale').checked = false;
-    document.getElementById('showRecommended').checked = false;
+    prodTypeSelect.value = 'detal';
+    prodIsOfferChk.checked = false;
+    toggleTypeFields();
   });
 
   if (btnClearDB) {
@@ -176,3 +233,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderTable();
 });
+

@@ -3,9 +3,83 @@
 const DB_KEY = 'fits_products';
 const CART_KEY = 'fits_cart';
 const CAT_KEY = 'fits_categories';
+const COMMENTS_KEY = 'fits_comments';
 
-// Initial dummy data to populate the store if empty
-const initialProducts = [];
+// Initial default products with new schema
+const initialProducts = [
+  {
+    id: 'p1',
+    name: 'CAMISETA COMPRESSION PRO',
+    type: 'detal',
+    category: 'ROPA DE ENTRENAMIENTO',
+    isOffer: true,
+    price: 45.00,
+    salePrice: 34.99,
+    image: 'img/fits%20two.png',
+    tag: 'SALE',
+    packageQuantity: null
+  },
+  {
+    id: 'p2',
+    name: 'ZAPATILLAS RUNNING NITRO 5.0',
+    type: 'detal',
+    category: 'ZAPATILLAS DE RUNNING',
+    isOffer: false,
+    price: 120.00,
+    salePrice: null,
+    image: 'img/fits%20two.png',
+    tag: 'NEW',
+    packageQuantity: null
+  },
+  {
+    id: 'p3',
+    name: 'CHAMARRA DEPORTE THERMO',
+    type: 'detal',
+    category: 'ESTILO DE VIDA',
+    isOffer: true,
+    price: 85.00,
+    salePrice: 65.00,
+    image: 'img/fits%20two.png',
+    tag: 'SALE',
+    packageQuantity: null
+  },
+  {
+    id: 'p4',
+    name: 'PACK DE BANDAS DE RESISTENCIA',
+    type: 'detal',
+    category: 'ACCESORIOS',
+    isOffer: false,
+    price: 25.00,
+    salePrice: null,
+    image: 'img/fits%20two.png',
+    tag: null,
+    packageQuantity: null
+  },
+  {
+    id: 'p5',
+    name: 'LOTE CAMISETAS COMPRESSION (12 UNIDADES)',
+    type: 'mayor',
+    category: 'AL MAYOR',
+    isOffer: false,
+    price: 320.00,
+    salePrice: null,
+    image: 'img/fits%20two.png',
+    tag: 'MAYOR',
+    packageQuantity: 12
+  },
+  {
+    id: 'p6',
+    name: 'PACK ACCESORIOS GIMNASIO (24 UNIDADES)',
+    type: 'mayor',
+    category: 'AL MAYOR',
+    isOffer: false,
+    price: 280.00,
+    salePrice: null,
+    image: 'img/fits%20two.png',
+    tag: 'MAYOR',
+    packageQuantity: 24
+  }
+];
 
 const initialCategories = [
   'ROPA DE ENTRENAMIENTO',
@@ -14,15 +88,63 @@ const initialCategories = [
   'ACCESORIOS'
 ];
 
+const initialComments = [
+  {
+    id: 'c1',
+    author: 'Carlos Mendoza',
+    rating: 5,
+    date: '2026-08-20',
+    comment: 'La calidad de las camisetas de compresión es increíble. Ajuste perfecto para entrenamientos de alta intensidad.'
+  },
+  {
+    id: 'c2',
+    author: 'Valeria Gómez',
+    rating: 5,
+    date: '2026-08-18',
+    comment: 'Compré un paquete al mayor para nuestro centro deportivo y la atención por WhatsApp fue rápida y formal. Totalmente recomendado.'
+  },
+  {
+    id: 'c3',
+    author: 'Andrés Silva',
+    rating: 4,
+    date: '2026-08-15',
+    comment: 'Las zapatillas Nitro son súper livianas y con excelente amortiguación. El producto llegó tal cual lo descrito.'
+  }
+];
+
 function initDB() {
   if (!localStorage.getItem(DB_KEY)) {
     localStorage.setItem(DB_KEY, JSON.stringify(initialProducts));
+  } else {
+    // Migration: ensure products have 'type', 'isOffer', 'packageQuantity'
+    let products = JSON.parse(localStorage.getItem(DB_KEY));
+    if (Array.isArray(products)) {
+      let modified = false;
+      products = products.map(p => {
+        if (!p.type) {
+          modified = true;
+          return {
+            ...p,
+            type: p.showInWholesale ? 'mayor' : 'detal',
+            isOffer: p.showInOffers === true || (p.salePrice !== null && p.salePrice !== undefined),
+            packageQuantity: p.packageQuantity || (p.showInWholesale ? 10 : null)
+          };
+        }
+        return p;
+      });
+      if (modified) {
+        localStorage.setItem(DB_KEY, JSON.stringify(products));
+      }
+    }
   }
   if (!localStorage.getItem(CAT_KEY)) {
     localStorage.setItem(CAT_KEY, JSON.stringify(initialCategories));
   }
   if (!localStorage.getItem(CART_KEY)) {
     localStorage.setItem(CART_KEY, JSON.stringify([]));
+  }
+  if (!localStorage.getItem(COMMENTS_KEY)) {
+    localStorage.setItem(COMMENTS_KEY, JSON.stringify(initialComments));
   }
 }
 
@@ -74,6 +196,26 @@ function addCategory(cat) {
   }
 }
 
+// --- COMMENTS ---
+function getComments() {
+  return JSON.parse(localStorage.getItem(COMMENTS_KEY)) || [];
+}
+
+function addComment(author, rating, comment, image = null) {
+  const comments = getComments();
+  const newComment = {
+    id: 'c' + Date.now(),
+    author: author.trim() || 'Cliente',
+    rating: parseInt(rating, 10) || 5,
+    date: new Date().toISOString().split('T')[0],
+    comment: comment.trim(),
+    image: image || null
+  };
+  comments.unshift(newComment); // new comments at top
+  localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+  return newComment;
+}
+
 // --- CART ---
 function getCart() {
   const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
@@ -99,8 +241,6 @@ function addToCart(productId, quantity = 1, size = 'M') {
     cart.push({ productId, quantity, size });
   }
   saveCart(cart);
-  
-  // Pequeña notificación visual
   alert("Producto añadido al carrito");
 }
 
@@ -159,9 +299,13 @@ window.FITS_DB = {
   deleteProduct,
   getCategories,
   addCategory,
+  getComments,
+  addComment,
   getCart,
   addToCart,
   removeFromCart,
   updateCartQuantity,
   updateCartIcon
 };
+
+
