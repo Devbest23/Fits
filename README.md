@@ -86,7 +86,7 @@ npm run build
 npm run preview
 ```
 
-El build genera `dist/`, copia `index.html` a `404.html` y crea `.nojekyll` para que las rutas funcionen en GitHub Pages.
+El build genera `dist/`, copia `index.html` a `404.html`, crea `.nojekyll` y genera carpetas con `index.html` para las rutas conocidas (tienda, mayor, carrito, ayuda, productos de ejemplo y panel). Así los enlaces directos funcionan en GitHub Pages; las rutas dinámicas nuevas siguen usando `404.html` como fallback.
 
 ### GitHub Pages con Actions (recomendado)
 
